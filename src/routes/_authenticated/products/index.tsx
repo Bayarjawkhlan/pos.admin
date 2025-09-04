@@ -17,7 +17,19 @@ export const Route = createFileRoute('/_authenticated/products/')({
 })
 
 function RouteComponent() {
-  const table = useProductsStore()
+  const {
+    columns,
+    setSelectedProduct,
+    setPage,
+    setPerPage,
+    totalPage,
+    page,
+    perPage,
+    filters,
+    setColumns,
+    setFilter,
+    clearAllFilters
+  } = useProductsStore()
   const defaultColumns = useProductsColumns()
 
   const handleDeleteProduct = async (row: Product) => {
@@ -38,26 +50,36 @@ function RouteComponent() {
   )
 
   useEffect(() => {
-    table.setColumns(defaultColumns)
+    setColumns(defaultColumns)
   }, [])
 
-  const productType = table.filters?.find((filter) => filter.id === 'productType')?.values[0].value
+  const handleRowClick = (row: any) => {
+    console.log({ row })
+  }
 
-  console.log({ productType })
+  const productType = filters?.find((filter) => filter.id === 'productType')?.value
 
   return (
     <Container title={i18n.t('Сан')} breadcrumbs={[{ to: '#', label: i18n.t('Бараа бүтээгдэхүүн') }]}>
       <DataTable<Product, ProductColumnId>
-        {...table}
-        caption={i18n.t('Бараа бүтээгдэхүүнүүд')}
+        columns={columns}
+        page={page}
+        perPage={perPage}
+        totalPage={totalPage}
+        setPage={setPage}
+        setPerPage={setPerPage}
+        filters={filters}
+        setFilter={setFilter}
         defaultColumns={defaultColumns}
+        clearAllFilters={clearAllFilters}
         disableActions={false}
         data={PRODUCTS.filter((product) => !productType || product.productType === productType)}
         actions={[
-          { label: i18n.t('Засах'), icon: Pencil, onClick: (row) => table.setSelectedProduct(row) },
-          { label: i18n.t('Устгах'), icon: Trash, onClick: (row) => handleDeleteProduct(row) }
+          { label: i18n.t('Засах'), icon: Pencil, onClick: (row) => setSelectedProduct(row) },
+          { label: i18n.t('Устгах'), icon: Trash, onClick: (row) => handleDeleteProduct(row), variant: 'destructive' }
         ]}
         tableHeader={<ProductsTableHeader csvData={csvData} />}
+        onRowClick={handleRowClick}
       />
     </Container>
   )

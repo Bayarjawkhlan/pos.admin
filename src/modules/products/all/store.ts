@@ -1,14 +1,5 @@
 import { create } from 'zustand'
-import { generateUUID } from '@/lib/utils'
-import {
-  AddFilter,
-  ChangeFilterOperator,
-  FilterField,
-  RemoveFilter,
-  SetFilterValue,
-  SetSorts,
-  SortField
-} from '@/components/table/types'
+import { FilterField, SetFilter, SetSorts, SortField } from '@/components/table/types'
 import { Product, ProductColumn, ProductColumnId } from './types'
 
 type ProductsStore = {
@@ -30,17 +21,10 @@ type ProductsStore = {
   removeColumn: (columnId: ProductColumnId) => void
   setSelectedProduct: (product: Product | null) => void
   setSorts: (sort: SetSorts<ProductColumnId>) => void
-  addFilter: (options: AddFilter<ProductColumnId>) => void
-  setFilterValue: (options: SetFilterValue<ProductColumnId>) => void
-  removeFilter: (options: RemoveFilter<ProductColumnId>) => void
+  setFilter: (filter: SetFilter<ProductColumnId>) => void
   clearAllFilters: () => void
-  changeFilterOperator: (options: ChangeFilterOperator<ProductColumnId>) => void
   setColumns: (columns: ProductColumn[]) => void
 }
-
-const initialFilters: FilterField<ProductColumnId>[] = [
-  { id: 'productType', join: 'and', values: [{ operator: 'eq', value: 'medicine', uuid: generateUUID() }] }
-]
 
 export const useProductsStore = create<ProductsStore>((set, get) => ({
   // table state
@@ -51,7 +35,7 @@ export const useProductsStore = create<ProductsStore>((set, get) => ({
   defaultColumns: [],
   selectedProduct: null,
   sorts: [],
-  filters: initialFilters,
+  filters: [{ id: 'productType', value: 'medicine' }],
 
   // table setters
   setPage: (page) => set({ page }),
@@ -77,34 +61,14 @@ export const useProductsStore = create<ProductsStore>((set, get) => ({
           : [...state.sorts, { id, direction }]
         : state.sorts.filter((s) => s.id !== id)
     })),
-  addFilter: ({ id, operator, value }) =>
+  setFilter: ({ id, value }) =>
     set((state) => ({
-      filters: state.filters.some((f) => f.id === id)
-        ? state.filters.map((f) => (f.id === id ? { ...f, values: [...f.values, { operator, value, uuid: generateUUID() }] } : f))
-        : [...state.filters, { id, values: [{ operator, value, uuid: generateUUID() }], join: 'and' }]
+      filters: value
+        ? state.filters.some((f) => f.id === id)
+          ? state.filters.map((f) => (f.id === id ? { ...f, value } : f))
+          : [...state.filters, { id, value }]
+        : state.filters.filter((f) => f.id !== id)
     })),
-  setFilterValue: ({ id, uuid, value, operator }) =>
-    set((state) => ({
-      filters: state.filters
-        .map((f) => (f.id === id ? { ...f, values: f.values.map((v) => (v.uuid === uuid ? { ...v, value } : v)) } : f))
-        .concat(
-          state.filters.map((f) =>
-            f.id === id ? { ...f, values: f.values.map((v) => (v.uuid === uuid ? { ...v, value } : v)) } : f
-          ).length === 1
-            ? [{ id, values: [{ operator, value, uuid }], join: 'and' }]
-            : []
-        )
-    })),
-  changeFilterOperator: ({ id, uuid, operator }) =>
-    set((state) => ({
-      filters: state.filters.map((f) =>
-        f.id === id ? { ...f, values: f.values.map((v) => (v.uuid === uuid ? { ...v, operator } : v)) } : f
-      )
-    })),
-  removeFilter: ({ id, uuid }) =>
-    set((state) => ({
-      filters: state.filters.map((f) => (f.id === id ? { ...f, values: f.values.filter((v) => v.uuid !== uuid) } : f))
-    })),
-  clearAllFilters: () => set({ filters: initialFilters }),
+  clearAllFilters: () => set({ filters: [] }),
   setColumns: (columns) => set({ columns, defaultColumns: columns })
 }))

@@ -1,7 +1,6 @@
 import { i18n } from '@lingui/core'
-import { File, Pill, Plus, ShoppingBag } from 'lucide-react'
+import { Download, Plus } from 'lucide-react'
 import { exportTableToCSV } from '@/lib/export'
-import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { ColumnFilter } from '@/components/table/components/column-filter'
@@ -13,14 +12,15 @@ type ProductsTableHeaderProps = {
 }
 
 export const ProductsTableHeader = ({ csvData }: ProductsTableHeaderProps) => {
-  const { filters, setFilters, columns, defaultColumns, addColumn, removeColumn } = useProductsStore()
+  const { filters, setFilter, columns, defaultColumns, addColumn, removeColumn } = useProductsStore()
 
   return (
     <div className='flex items-center justify-between border-b px-3 py-2'>
-      <div className='flex items-center gap-x-1'>
+      <div />
+      {/* <div className='flex items-center gap-x-1'>
         <Button
           variant='outline'
-          onClick={() => setFilters('productType', 'medicine')}
+          onClick={() => setFilter({ id: 'productType', value: 'medicine' })}
           className={cn(
             filters?.some((filter) => filter.id === 'productType' && filter.value === 'medicine') &&
               'bg-primary/10 hover:bg-primary/5 text-primary hover:text-primary border-primary/50'
@@ -31,7 +31,7 @@ export const ProductsTableHeader = ({ csvData }: ProductsTableHeaderProps) => {
         </Button>
         <Button
           variant='outline'
-          onClick={() => setFilters('productType', 'not-medicine')}
+          onClick={() => setFilter({ id: 'productType', value: 'not-medicine' })}
           className={cn(
             filters?.some((filter) => filter.id === 'productType' && filter.value === 'not-medicine') &&
               'bg-primary/10 hover:bg-primary/5 text-primary hover:text-primary border-primary/50'
@@ -42,13 +42,9 @@ export const ProductsTableHeader = ({ csvData }: ProductsTableHeaderProps) => {
             <span>{i18n.t('Эм бус')}</span>
           )}
         </Button>
-      </div>
+      </div> */}
 
       <div className='flex items-center gap-x-2'>
-        <Button variant='outline' onClick={() => exportTableToCSV(columns, csvData, { filename: 'products' })}>
-          <File />
-          <span>{i18n.t('Excel-р татах')}</span>
-        </Button>
         {/* Add new Product sheet */}
         <Sheet>
           <SheetTrigger asChild>
@@ -61,6 +57,9 @@ export const ProductsTableHeader = ({ csvData }: ProductsTableHeaderProps) => {
             <ProductFormModal />
           </SheetContent>
         </Sheet>
+        <Button variant='outline' size='icon' onClick={() => exportTableToCSV(columns, csvData, { filename: 'products' })}>
+          <Download />
+        </Button>
         <ColumnFilter columns={columns} addColumn={addColumn} removeColumn={removeColumn} defaultColumns={defaultColumns} />
       </div>
     </div>

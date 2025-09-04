@@ -1,7 +1,5 @@
-import { i18n } from '@lingui/core'
-import { File, Pill, ShoppingBag } from 'lucide-react'
+import { Download } from 'lucide-react'
 import { exportTableToCSV } from '@/lib/export'
-import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { ColumnFilter } from '@/components/table/components/column-filter'
 import { useStockCountsStore } from '../store'
@@ -11,11 +9,12 @@ type StockCountTableHeaderProps = {
 }
 
 export const StockCountTableHeader = ({ csvData }: StockCountTableHeaderProps) => {
-  const { filters, setFilters, columns, defaultColumns, addColumn, removeColumn } = useStockCountsStore()
+  const { columns, defaultColumns, addColumn, removeColumn } = useStockCountsStore()
 
   return (
     <div className='flex items-center justify-between border-b px-3 py-2'>
-      <div className='flex items-center gap-x-1'>
+      <div />
+      {/* <div className='flex items-center gap-x-1'>
         <Button
           size='sm'
           variant='outline'
@@ -42,12 +41,11 @@ export const StockCountTableHeader = ({ csvData }: StockCountTableHeaderProps) =
             <span>{i18n.t('Эм бус')}</span>
           )}
         </Button>
-      </div>
+      </div> */}
 
       <div className='flex items-center gap-x-2'>
-        <Button variant='outline' size='sm' onClick={() => exportTableToCSV(columns, csvData, { filename: 'products' })}>
-          <File />
-          <span>{i18n.t('Excel-р татах')}</span>
+        <Button variant='outline' size='icon' onClick={() => exportTableToCSV(columns, csvData, { filename: 'products' })}>
+          <Download />
         </Button>
         <ColumnFilter columns={columns} addColumn={addColumn} removeColumn={removeColumn} defaultColumns={defaultColumns} />
       </div>

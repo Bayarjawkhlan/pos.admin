@@ -1,7 +1,6 @@
 import { format } from 'date-fns'
 import { i18n } from '@lingui/core'
 import { Barcode, DollarSign, Factory, Globe2, Search } from 'lucide-react'
-import { toast } from 'sonner'
 import { formatMoney } from '@/lib/utils'
 import { ColumnHeader } from '@/components/table/components/column-header'
 import COUNTRIES from './countries.json'
@@ -48,17 +47,7 @@ export const useProductsColumns = (): ProductColumn[] => {
       id: 'barcode',
       headerName: i18n.t('Баркод'),
       header: <ColumnHeader title={i18n.t('Баркод')} id='barcode' sorts={sorts} setSorts={setSorts} sortable />,
-      cell: (row) => (
-        <button
-          className='text-muted-foreground text-sm'
-          onClick={() => {
-            navigator.clipboard.writeText(row.barcode)
-            toast.success(i18n.t('Баркод амжилттай хуулгаачлагдлаа'))
-          }}
-        >
-          {row.barcode}
-        </button>
-      ),
+      cell: (row) => <p className='text-muted-foreground text-sm'>{row.barcode || '-'}</p>,
       filterable: true,
       meta: {
         variant: 'text',
@@ -114,9 +103,7 @@ export const useProductsColumns = (): ProductColumn[] => {
       meta: {
         variant: 'number',
         placeholder: i18n.t('1000'),
-        icon: DollarSign,
-        thousandSeparator: true,
-        suffix: i18n.t('₮')
+        icon: DollarSign
       }
     },
     {
@@ -126,7 +113,7 @@ export const useProductsColumns = (): ProductColumn[] => {
       cell: (row) => <p className='text-muted-foreground text-sm'>{format(row.createdAt, 'dd/MM/yyyy')}</p>,
       filterable: true,
       meta: {
-        variant: 'date',
+        variant: 'date-range',
         placeholder: i18n.t('Огноо')
       }
     }

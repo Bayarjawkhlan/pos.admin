@@ -185,9 +185,7 @@ export const useProductsColumns = (): StockCountColumn[] => {
       meta: {
         variant: 'number',
         placeholder: i18n.t('1000'),
-        icon: DollarSign,
-        thousandSeparator: true,
-        suffix: i18n.t('₮')
+        icon: DollarSign
       }
     }
   ]
