@@ -10,7 +10,7 @@ type ProductsStore = {
   columns: ProductColumn[]
   defaultColumns: ProductColumn[]
   selectedProduct: Product | null
-  sorts: SortField[]
+  sorts: SortField<ProductColumnId>[]
   filters: FilterField<ProductColumnId>[]
 
   // table setters

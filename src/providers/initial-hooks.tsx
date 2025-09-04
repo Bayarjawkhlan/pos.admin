@@ -14,6 +14,7 @@ export const InitialHooks = () => {
     setIsLoading(true)
     getMe()
       .then(({ data }) => {
+        console.log(data)
         // if (data?.me) setUser(data?.me ?? null)
       })
       .finally(() => setIsLoading(false))

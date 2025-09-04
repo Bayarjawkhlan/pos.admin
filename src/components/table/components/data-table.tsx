@@ -1,3 +1,4 @@
+import { i18n } from '@lingui/core'
 import { EllipsisVertical, LucideIcon, Trash2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
@@ -89,7 +90,7 @@ export const DataTable = <T, K extends string>({
               })}
               {clearAllFilters && filters && filters.length > 0 && (
                 <TableCell className='bg-background sticky right-0 z-10 w-10'>
-                  <ActionDialog onConfirm={() => clearAllFilters?.()}>
+                  <ActionDialog title={i18n.t('Бүх шүүлтүүрийг устгах')} onConfirm={() => clearAllFilters?.()}>
                     <Button variant='ghost' size='icon'>
                       <Trash2 className='size-5' />
                     </Button>

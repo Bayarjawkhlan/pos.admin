@@ -88,9 +88,6 @@ export const dateFormatHuman = (dateString: string | Date, format?: string): str
 }
 
 export const handleServerError = (error: unknown) => {
-  // eslint-disable-next-line no-console
-  console.log(error)
-
   let errMsg = i18n.t('Something went wrong!')
 
   if (error && typeof error === 'object' && 'status' in error && Number(error.status) === 204) {

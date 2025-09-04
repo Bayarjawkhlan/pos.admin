@@ -29,6 +29,8 @@ export type FilterField<K> = {
 
 export type SortDirection = 'asc' | 'desc'
 
+export type TableKey = 'products' | 'stock' | 'stock-count' | 'orders' | 'users' | 'employees'
+
 export type Row<T> = keyof T
 
 export type SetSorts<K> = {

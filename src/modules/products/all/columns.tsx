@@ -1,9 +1,9 @@
 import { format } from 'date-fns'
 import { i18n } from '@lingui/core'
 import { Barcode, DollarSign, Factory, Globe2, Search } from 'lucide-react'
+import COUNTRIES from '@/lib/constants/countries.json'
 import { formatMoney } from '@/lib/utils'
 import { ColumnHeader } from '@/components/table/components/column-header'
-import COUNTRIES from './countries.json'
 import { useProductsStore } from './store'
 import { ProductColumn } from './types'
 

@@ -4,4 +4,8 @@ type ProductFormModalProps = {
   data?: Product
 }
 
-export const ProductFormModal = ({ data }: ProductFormModalProps) => <div className='' />
+export const ProductFormModal = ({ data }: ProductFormModalProps) => {
+  console.log(data)
+
+  return <div className='' />
+}

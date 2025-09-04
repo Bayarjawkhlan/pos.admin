@@ -9,12 +9,15 @@ import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { SheetClose } from '@/components/ui/sheet'
-import { Sidebar as BaseSidebar } from '@/components/ui/sidebar'
 import { Logo } from '@/components/common/logo'
 import { SIDEBAR_DATA } from '../constants'
 import { useLayoutStore } from '../store'
 
-export const Sidebar = ({ isMobile = false, ...props }: React.ComponentProps<typeof BaseSidebar> & { isMobile?: boolean }) => {
+type SidebarProps = {
+  isMobile?: boolean
+}
+
+export const Sidebar = ({ isMobile = false }: SidebarProps) => {
   const location = useLocation()
   const { logout } = useAuthStore()
   const { user } = useUserStore()

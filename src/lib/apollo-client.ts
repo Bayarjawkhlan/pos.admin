@@ -1,9 +1,9 @@
 import { useAuthStore } from '@/modules/auth/store'
-import { ApolloClient, ApolloLink, HttpLink, from as ApolloFrom, InMemoryCache } from '@apollo/client'
+import { ApolloClient, from as ApolloFrom, ApolloLink, HttpLink, InMemoryCache } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context'
 import { onError } from '@apollo/client/link/error'
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions'
-import { relayStylePagination, getMainDefinition } from '@apollo/client/utilities'
+import { getMainDefinition, relayStylePagination } from '@apollo/client/utilities'
 import { i18n } from '@lingui/core'
 import createUploadLink from 'apollo-upload-client/createUploadLink.mjs'
 import { createClient } from 'graphql-ws'
@@ -13,9 +13,9 @@ import { clearToken, getPublicToken } from '@/lib/tokens/client-token-rotration'
 
 const GTN_API_URL = import.meta.env.VITE_API_URL || ''
 
-const errorLink = onError(({ graphQLErrors, networkError, operation, forward }) => {
+const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
-    graphQLErrors.forEach(({ message, locations, path, extensions }) => {
+    graphQLErrors.forEach(({ message, extensions }) => {
       if (extensions?.code === 'UNAUTHENTICATED') {
         clearToken()
         useAuthStore.getState().logout()

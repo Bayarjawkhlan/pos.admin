@@ -1,29 +1,27 @@
 import { create } from 'zustand'
-import { FilterField, SetFilter, SetSorts, SortField } from '@/components/table/types'
+import { FilterField, SetFilter, SetSorts, SortField, TableKey } from '@/components/table/types'
 
-export type TableState<ColumnId = string, Row = any> = {
+export type TableState<ColumnId = string> = {
   page: number
   perPage: number
   totalPage: number
   columns: { id: ColumnId; [key: string]: any }[]
   defaultColumns: { id: ColumnId; [key: string]: any }[]
-  selectedRow: Row | null
   sorts: SortField<ColumnId>[]
   filters: FilterField<ColumnId>[]
 }
 
 type TablesStore = {
-  tables: Record<string, TableState>
-  initTable: (key: string, initial: TableState) => void
-  setTable: (key: string, state: Partial<TableState>) => void
-  setPage: (key: string, page: number) => void
-  setPerPage: (key: string, perPage: number) => void
-  setTotalPage: (key: string, totalPage: number) => void
-  setColumns: (key: string, columns: TableState['columns']) => void
-  setSelectedRow: (key: string, row: any) => void
-  setSorts: (key: string, sort: SetSorts<string>) => void
-  setFilter: (key: string, filter: SetFilter<string>) => void
-  clearAllFilters: (key: string) => void
+  tables: Record<TableKey, TableState> | Record<string, TableState>
+  initTable: (key: TableKey, initial: TableState) => void
+  setTable: (key: TableKey, state: Partial<TableState>) => void
+  setPage: (key: TableKey, page: number) => void
+  setPerPage: (key: TableKey, perPage: number) => void
+  setTotalPage: (key: TableKey, totalPage: number) => void
+  setColumns: (key: TableKey, columns: TableState['columns']) => void
+  setSorts: (key: TableKey, sort: SetSorts<string>) => void
+  setFilter: (key: TableKey, filter: SetFilter<string>) => void
+  clearAllFilters: (key: TableKey) => void
 }
 
 export const useTablesStore = create<TablesStore>((set, get) => ({
@@ -49,7 +47,6 @@ export const useTablesStore = create<TablesStore>((set, get) => ({
   setPerPage: (key, perPage) => get().setTable(key, { perPage }),
   setTotalPage: (key, totalPage) => get().setTable(key, { totalPage }),
   setColumns: (key, columns) => get().setTable(key, { columns, defaultColumns: columns }),
-  setSelectedRow: (key, row) => get().setTable(key, { selectedRow: row }),
   setSorts: (key, { id, direction }) => {
     const table = get().tables[key]
     if (!table) return

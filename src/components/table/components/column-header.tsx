@@ -2,17 +2,17 @@ import { cn } from '@/lib/utils'
 import { SortDirection, SortField } from '../types'
 import { getSortIcon } from '../utils'
 
-type ColumnHeaderProps = {
+type ColumnHeaderProps<K> = {
   title: string
   id?: string
-  sorts?: SortField[]
+  sorts?: SortField<K>[]
   sortable?: boolean
   setSorts?: (id: any, direction: SortDirection | null) => void
   className?: string
   align?: 'left' | 'center' | 'right'
 }
 
-export const ColumnHeader = ({ title, id, sorts, sortable, setSorts, className, align = 'left' }: ColumnHeaderProps) => {
+export const ColumnHeader = <K,>({ title, id, sorts, sortable, setSorts, className, align = 'left' }: ColumnHeaderProps<K>) => {
   const handleSort = () => {
     if (!sortable || !id || !setSorts) return
     let direction: SortDirection | null = null

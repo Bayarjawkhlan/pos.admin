@@ -281,14 +281,12 @@ const FormFieldAddon = <
               {...field}
               onChange={(e) => {
                 const val = e.target.value
-                console.log({ val })
                 onChange?.(val ? parseFloat(e.target.value.replace(/,/g, '')) : 0)
               }}
               className={cn('h-10 text-right font-bold', className)}
               style={{ paddingRight: (addon.length || 0) * 12 + 16 }}
               placeholder={placeholder}
               onValueChange={(values) => {
-                console.log(values)
                 field.onChange(values.floatValue)
               }}
               {...componentProps}
@@ -303,16 +301,16 @@ const FormFieldAddon = <
 )
 
 export {
-  useFormField,
-  Form,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormDescription,
-  FormMessage,
-  FormField,
-  FormFieldSimplified,
   FieldItemH,
   FieldItemV,
-  FormFieldAddon
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormFieldAddon,
+  FormFieldSimplified,
+  FormItem,
+  FormLabel,
+  FormMessage,
+  useFormField
 }

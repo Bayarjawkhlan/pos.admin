@@ -33,6 +33,7 @@ function RouteComponent() {
   const defaultColumns = useProductsColumns()
 
   const handleDeleteProduct = async (row: Product) => {
+    console.log(row)
     await new Promise((resolve) => setTimeout(resolve, 1000))
     toast.success(i18n.t('Бараа амжилттай устгагдлаа'))
     // TODO: Refetch products
@@ -54,7 +55,7 @@ function RouteComponent() {
   }, [])
 
   const handleRowClick = (row: any) => {
-    console.log({ row })
+    setSelectedProduct(row)
   }
 
   const productType = filters?.find((filter) => filter.id === 'productType')?.value
