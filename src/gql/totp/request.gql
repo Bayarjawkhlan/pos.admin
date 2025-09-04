@@ -1,0 +1,8 @@
+mutation requestTotp {
+  requestTotp(input: {}) {
+    secret
+    accountName
+    issuer
+    provisioningUri
+  }
+}

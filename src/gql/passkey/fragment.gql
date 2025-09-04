@@ -1,0 +1,10 @@
+fragment passkey on Passkey {
+  id
+  externalId
+  label
+  createdAt
+  signCount
+  isActive
+  lastUsedAt
+  userAgent
+}

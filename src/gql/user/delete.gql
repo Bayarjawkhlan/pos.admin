@@ -1,0 +1,5 @@
+mutation deleteUser($password: String!) {
+  deleteUser(input: { password: $password }) {
+    id
+  }
+}

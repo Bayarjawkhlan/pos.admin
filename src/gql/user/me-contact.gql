@@ -1,0 +1,19 @@
+query meContact {
+  me {
+    id
+    email
+    emails {
+      id
+      email
+      confirmed
+      isDefault
+    }
+    phone
+    phones {
+      id
+      phone
+      confirmed
+      isDefault
+    }
+  }
+}

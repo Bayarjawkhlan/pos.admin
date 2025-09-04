@@ -1,0 +1,19 @@
+query orders($filter: OrderFilter, $first: Int, $offset: Int) {
+  orders(filter: $filter, first: $first, offset: $offset) {
+    nodes {
+      id
+      number
+      orderStatus
+      orderType
+      accountNumber
+      exchange
+      symbol
+      orderQty
+      price
+      createdAt
+      updatedAt
+      orderRejectReason
+    }
+    totalCount
+  }
+}

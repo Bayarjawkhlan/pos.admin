@@ -1,0 +1,15 @@
+{
+	auto_https off
+	http_port 80
+	https_port 443
+}
+
+*.pos.test {
+	reverse_proxy localhost:5173
+	tls ./pos.test+1.pem ./pos.test+1-key.pem
+}
+
+pos.test {
+	reverse_proxy localhost:5173
+	tls ./pos.test+1.pem ./pos.test+1-key.pem
+}

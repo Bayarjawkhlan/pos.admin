@@ -1,0 +1,31 @@
+mutation placeEquity($input: PlaceEquityInput!) {
+  placeEquity(input: $input) {
+    id
+    number
+    orderStatus
+    orderType
+    accountNumber
+    exchange
+    symbol
+    orderSide
+    orderQty
+    filledQty
+    price
+    averagePrice
+    commission
+    cumulativeCommission
+    cumulativeOrderNetSettle
+    cumulativeOrderNetValue
+    cumulativeOrderValue
+    cumulativeQty
+    cumulativeStampDutyAmount
+    cumulativeVatAmount
+    currency
+    expiryDate
+    lastPrice
+    orderValue
+    orderReferenceId
+    orderRejectReason
+    tif
+  }
+}

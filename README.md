@@ -1,4 +1,4 @@
-# GTN Stock platform
+# POS ADMIN
 
 [![TypeScript](https://badgen.net/badge/icon/typescript?icon=typescript&label)](https://typescriptlang.org) ![ESLint](https://img.shields.io/badge/code%20style-eslint-brightgreen)
 
@@ -74,4 +74,5 @@ install mkcert and create a local certificate for localhost:
   mkcert -install
   mkcert gtn.test localhost
 ```
+
 # pos.admin

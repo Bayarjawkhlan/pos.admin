@@ -1,0 +1,16 @@
+query devices {
+  me {
+    id
+    devices {
+      id
+      name
+      deviceId
+      ip
+      confirmed
+      location
+      platform
+      channel
+      lastActiveAt
+    }
+  }
+}

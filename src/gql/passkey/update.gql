@@ -1,0 +1,5 @@
+mutation updatePasskey($id: ID!, $label: String, $isActive: Boolean) {
+  updatePasskey(input: { id: $id, label: $label, isActive: $isActive }) {
+    ...passkey
+  }
+}

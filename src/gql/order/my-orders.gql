@@ -1,0 +1,43 @@
+query myOrders($after: String, $sort: SortFilter, $filter: OrderFilter, $first: Int) {
+  me {
+    id
+    orders(after: $after, sort: $sort, filter: $filter, first: $first) {
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+      edges {
+        node {
+          id
+          number
+          orderStatus
+          orderType
+          accountNumber
+          exchange
+          symbol
+          orderSide
+          orderQty
+          filledQty
+          price
+          averagePrice
+          commission
+          cumulativeCommission
+          cumulativeOrderNetSettle
+          cumulativeOrderNetValue
+          cumulativeOrderValue
+          cumulativeQty
+          cumulativeStampDutyAmount
+          cumulativeVatAmount
+          currency
+          expiryDate
+          lastPrice
+          orderValue
+          orderReferenceId
+          orderRejectReason
+          tif
+          createdAt
+        }
+      }
+    }
+  }
+}

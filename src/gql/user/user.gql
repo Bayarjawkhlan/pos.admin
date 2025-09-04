@@ -1,0 +1,5 @@
+query user($id: ID!) {
+  user: node(id: $id) {
+    ...user
+  }
+}

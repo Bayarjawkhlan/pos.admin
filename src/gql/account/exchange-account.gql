@@ -1,0 +1,19 @@
+query exchangeAccount($id: ID!) {
+  node(id: $id) {
+    ... on ExchangeAccount {
+      id
+      exchange
+      exchangeAccountId
+      exchangeAccountType
+      status
+      custodian
+      securityAccountId
+      isPriceEnabled
+      tradingEnabled
+      commissionType
+      feedLevel
+      createdAt
+      updatedAt
+    }
+  }
+}

@@ -1,0 +1,3 @@
+mutation deletePasskey($id: ID!) {
+  deletePasskey(input: { id: $id })
+}

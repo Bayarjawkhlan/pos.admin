@@ -1,0 +1,6 @@
+mutation cancelOrder($id: ID!) {
+  cancelOrder(input: { id: $id }) {
+    id
+    orderStatus
+  }
+}

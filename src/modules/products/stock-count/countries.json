@@ -1,0 +1,1353 @@
+[
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDk2",
+    "en": "Mongolia",
+    "mn": "Монгол",
+    "iso": "MN",
+    "iso3": "MNG"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNA",
+    "en": "Afghanistan",
+    "mn": "Афганистан",
+    "iso": "AF",
+    "iso3": "AFG"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvOA",
+    "en": "Albania",
+    "mn": "Албани",
+    "iso": "AL",
+    "iso3": "ALB"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTI",
+    "en": "Algeria",
+    "mn": "Алжир",
+    "iso": "DZ",
+    "iso3": "DZA"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjA",
+    "en": "Andorra",
+    "mn": "Андорра",
+    "iso": "AD",
+    "iso3": "AND"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjQ",
+    "en": "Angola",
+    "mn": "Ангол",
+    "iso": "AO",
+    "iso3": "AGO"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjg",
+    "en": "Antigua and Barbuda",
+    "mn": "Антигуа и Барбуда",
+    "iso": "AG",
+    "iso3": "ATG"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzI",
+    "en": "Argentina",
+    "mn": "Аргентин",
+    "iso": "AR",
+    "iso3": "ARG"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTE",
+    "en": "Armenia",
+    "mn": "Армени",
+    "iso": "AM",
+    "iso3": "ARM"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTUy",
+    "en": "Chile",
+    "mn": "Чили",
+    "iso": "CL",
+    "iso3": "CHL"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzY",
+    "en": "Australia",
+    "mn": "Австрали",
+    "iso": "AU",
+    "iso3": "AUS"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDA",
+    "en": "Austria",
+    "mn": "Австри",
+    "iso": "AT",
+    "iso3": "AUT"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzE",
+    "en": "Azerbaijan",
+    "mn": "Азербайжан",
+    "iso": "AZ",
+    "iso3": "AZE"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDQ",
+    "en": "Bahamas",
+    "mn": "Бахама",
+    "iso": "BS",
+    "iso3": "BHS"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDg",
+    "en": "Bahrain",
+    "mn": "Бахрейн",
+    "iso": "BH",
+    "iso3": "BHR"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTA",
+    "en": "Bangladesh",
+    "mn": "Бангладеш",
+    "iso": "BD",
+    "iso3": "BGD"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTI",
+    "en": "Barbados",
+    "mn": "Барбадос",
+    "iso": "BB",
+    "iso3": "BRB"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTEy",
+    "en": "Belarus",
+    "mn": "Беларусь",
+    "iso": "BY",
+    "iso3": "BLR"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTY",
+    "en": "Belgium",
+    "mn": "Бельги",
+    "iso": "BE",
+    "iso3": "BEL"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvODQ",
+    "en": "Belize",
+    "mn": "Белиз",
+    "iso": "BZ",
+    "iso3": "BLZ"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjA0",
+    "en": "Benin",
+    "mn": "Бенин",
+    "iso": "BJ",
+    "iso3": "BEN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjQ",
+    "en": "Bhutan",
+    "mn": "Бутан",
+    "iso": "BT",
+    "iso3": "BTN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjg",
+    "en": "Bolivia (Plurinational State of)",
+    "mn": "Боливи",
+    "iso": "BO",
+    "iso3": "BOL"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzA",
+    "en": "Bosnia and Herzegovina",
+    "mn": "Босни ба Герцеговин",
+    "iso": "BA",
+    "iso3": "BIH"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzI",
+    "en": "Botswana",
+    "mn": "Ботсвана",
+    "iso": "BW",
+    "iso3": "BWA"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzY",
+    "en": "Brazil",
+    "mn": "Бразил",
+    "iso": "BR",
+    "iso3": "BRA"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvOTY",
+    "en": "Brunei Darussalam",
+    "mn": "Бруней",
+    "iso": "BN",
+    "iso3": "BRN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTAw",
+    "en": "Bulgaria",
+    "mn": "Булгар",
+    "iso": "BG",
+    "iso3": "BGR"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvODU0",
+    "en": "Burkina Faso",
+    "mn": "Буркина Фасо",
+    "iso": "BF",
+    "iso3": "BFA"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTA4",
+    "en": "Burundi",
+    "mn": "Бурунди",
+    "iso": "BI",
+    "iso3": "BDI"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTE2",
+    "en": "Cambodia",
+    "mn": "Камбоджа",
+    "iso": "KH",
+    "iso3": "KHM"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTIw",
+    "en": "Cameroon",
+    "mn": "Камерун",
+    "iso": "CM",
+    "iso3": "CMR"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTI0",
+    "en": "Canada",
+    "mn": "Канада",
+    "iso": "CA",
+    "iso3": "CAN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTMy",
+    "en": "Cabo Verde",
+    "mn": "Кабо Верде",
+    "iso": "CV",
+    "iso3": "CPV"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTQw",
+    "en": "Central African Republic",
+    "mn": "Централноафриканска република",
+    "iso": "CF",
+    "iso3": "CAF"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTQ4",
+    "en": "Chad",
+    "mn": "Чад",
+    "iso": "TD",
+    "iso3": "TCD"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTU2",
+    "en": "China",
+    "mn": "Китай",
+    "iso": "CN",
+    "iso3": "CHN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTcw",
+    "en": "Colombia",
+    "mn": "Колумбия",
+    "iso": "CO",
+    "iso3": "COL"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTc0",
+    "en": "Comoros",
+    "mn": "Коморски острови",
+    "iso": "KM",
+    "iso3": "COM"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTc4",
+    "en": "Congo",
+    "mn": "Република Конго",
+    "iso": "CG",
+    "iso3": "COG"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTgw",
+    "en": "Congo, Democratic Republic of the",
+    "mn": "Демократична република Конго",
+    "iso": "CD",
+    "iso3": "COD"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTg4",
+    "en": "Costa Rica",
+    "mn": "Коста Рика",
+    "iso": "CR",
+    "iso3": "CRI"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzg0",
+    "en": "Côte d'Ivoire",
+    "mn": "Кот д'Ивоар",
+    "iso": "CI",
+    "iso3": "CIV"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTkx",
+    "en": "Croatia",
+    "mn": "Хърватия",
+    "iso": "HR",
+    "iso3": "HRV"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTky",
+    "en": "Cuba",
+    "mn": "Куба",
+    "iso": "CU",
+    "iso3": "CUB"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTk2",
+    "en": "Cyprus",
+    "mn": "Кипър",
+    "iso": "CY",
+    "iso3": "CYP"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjAz",
+    "en": "Czechia",
+    "mn": "Чехия",
+    "iso": "CZ",
+    "iso3": "CZE"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjA4",
+    "en": "Denmark",
+    "mn": "Дания",
+    "iso": "DK",
+    "iso3": "DNK"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjYy",
+    "en": "Djibouti",
+    "mn": "Джибути",
+    "iso": "DJ",
+    "iso3": "DJI"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjEy",
+    "en": "Dominica",
+    "mn": "Доминика",
+    "iso": "DM",
+    "iso3": "DMA"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjE0",
+    "en": "Dominican Republic",
+    "mn": "Доминиканска република",
+    "iso": "DO",
+    "iso3": "DOM"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjE4",
+    "en": "Ecuador",
+    "mn": "Еквадор",
+    "iso": "EC",
+    "iso3": "ECU"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvODE4",
+    "en": "Egypt",
+    "mn": "Египет",
+    "iso": "EG",
+    "iso3": "EGY"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjIy",
+    "en": "El Salvador",
+    "mn": "Салвадор",
+    "iso": "SV",
+    "iso3": "SLV"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjI2",
+    "en": "Equatorial Guinea",
+    "mn": "Екваториална Гвинея",
+    "iso": "GQ",
+    "iso3": "GNQ"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjMy",
+    "en": "Eritrea",
+    "mn": "Еритрея",
+    "iso": "ER",
+    "iso3": "ERI"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjMz",
+    "en": "Estonia",
+    "mn": "Естония",
+    "iso": "EE",
+    "iso3": "EST"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjMx",
+    "en": "Ethiopia",
+    "mn": "Етиопия",
+    "iso": "ET",
+    "iso3": "ETH"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjQy",
+    "en": "Fiji",
+    "mn": "Фиджи",
+    "iso": "FJ",
+    "iso3": "FJI"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjQ2",
+    "en": "Finland",
+    "mn": "Финландия",
+    "iso": "FI",
+    "iso3": "FIN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjUw",
+    "en": "France",
+    "mn": "Франция",
+    "iso": "FR",
+    "iso3": "FRA"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjY2",
+    "en": "Gabon",
+    "mn": "Габон",
+    "iso": "GA",
+    "iso3": "GAB"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjcw",
+    "en": "Gambia",
+    "mn": "Гамбия",
+    "iso": "GM",
+    "iso3": "GMB"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjY4",
+    "en": "Georgia",
+    "mn": "Грузия",
+    "iso": "GE",
+    "iso3": "GEO"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjc2",
+    "en": "Germany",
+    "mn": "Германия",
+    "iso": "DE",
+    "iso3": "DEU"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjg4",
+    "en": "Ghana",
+    "mn": "Гана",
+    "iso": "GH",
+    "iso3": "GHA"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzAw",
+    "en": "Greece",
+    "mn": "Гърция",
+    "iso": "GR",
+    "iso3": "GRC"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzA4",
+    "en": "Grenada",
+    "mn": "Гренада",
+    "iso": "GD",
+    "iso3": "GRD"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzIw",
+    "en": "Guatemala",
+    "mn": "Гватемала",
+    "iso": "GT",
+    "iso3": "GTM"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzI0",
+    "en": "Guinea",
+    "mn": "Гвинея",
+    "iso": "GN",
+    "iso3": "GIN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzY4",
+    "en": "Iraq",
+    "mn": "Ирак",
+    "iso": "IQ",
+    "iso3": "IRQ"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjI0",
+    "en": "Guinea-Bissau",
+    "mn": "Гвинея-Бисау",
+    "iso": "GW",
+    "iso3": "GNB"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzI4",
+    "en": "Guyana",
+    "mn": "Гвиана",
+    "iso": "GY",
+    "iso3": "GUY"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzMy",
+    "en": "Haiti",
+    "mn": "Хаити",
+    "iso": "HT",
+    "iso3": "HTI"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzQw",
+    "en": "Honduras",
+    "mn": "Хондурас",
+    "iso": "HN",
+    "iso3": "HND"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzQ4",
+    "en": "Hungary",
+    "mn": "Унгария",
+    "iso": "HU",
+    "iso3": "HUN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzUy",
+    "en": "Iceland",
+    "mn": "Исландия",
+    "iso": "IS",
+    "iso3": "ISL"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzU2",
+    "en": "India",
+    "mn": "Индия",
+    "iso": "IN",
+    "iso3": "IND"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzYw",
+    "en": "Indonesia",
+    "mn": "Индонезия",
+    "iso": "ID",
+    "iso3": "IDN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzY0",
+    "en": "Iran (Islamic Republic of)",
+    "mn": "Иран",
+    "iso": "IR",
+    "iso3": "IRN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzcy",
+    "en": "Ireland",
+    "mn": "Ирландия",
+    "iso": "IE",
+    "iso3": "IRL"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzc2",
+    "en": "Israel",
+    "mn": "Израел",
+    "iso": "IL",
+    "iso3": "ISR"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzgw",
+    "en": "Italy",
+    "mn": "Италия",
+    "iso": "IT",
+    "iso3": "ITA"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzg4",
+    "en": "Jamaica",
+    "mn": "Ямайка",
+    "iso": "JM",
+    "iso3": "JAM"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzky",
+    "en": "Japan",
+    "mn": "Япон",
+    "iso": "JP",
+    "iso3": "JPN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDAw",
+    "en": "Jordan",
+    "mn": "Йордания",
+    "iso": "JO",
+    "iso3": "JOR"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMzk4",
+    "en": "Kazakhstan",
+    "mn": "Казахстан",
+    "iso": "KZ",
+    "iso3": "KAZ"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDA0",
+    "en": "Kenya",
+    "mn": "Кения",
+    "iso": "KE",
+    "iso3": "KEN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMjk2",
+    "en": "Kiribati",
+    "mn": "Кирибати",
+    "iso": "KI",
+    "iso3": "KIR"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDA4",
+    "en": "Korea (Democratic People's Republic of)",
+    "mn": "Северна Корея",
+    "iso": "KP",
+    "iso3": "PRK"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDEw",
+    "en": "Korea, Republic of",
+    "mn": "Южна Корея",
+    "iso": "KR",
+    "iso3": "KOR"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDE0",
+    "en": "Kuwait",
+    "mn": "Кувейт",
+    "iso": "KW",
+    "iso3": "KWT"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDE3",
+    "en": "Kyrgyzstan",
+    "mn": "Киргизстан",
+    "iso": "KG",
+    "iso3": "KGZ"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDE4",
+    "en": "Lao People's Democratic Republic",
+    "mn": "Лаос",
+    "iso": "LA",
+    "iso3": "LAO"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDI4",
+    "en": "Latvia",
+    "mn": "Латвия",
+    "iso": "LV",
+    "iso3": "LVA"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDIy",
+    "en": "Lebanon",
+    "mn": "Ливан",
+    "iso": "LB",
+    "iso3": "LBN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDI2",
+    "en": "Lesotho",
+    "mn": "Лесото",
+    "iso": "LS",
+    "iso3": "LSO"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDMw",
+    "en": "Liberia",
+    "mn": "Либерия",
+    "iso": "LR",
+    "iso3": "LBR"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDM0",
+    "en": "Libya",
+    "mn": "Либия",
+    "iso": "LY",
+    "iso3": "LBY"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDM4",
+    "en": "Liechtenstein",
+    "mn": "Лихтенщайн",
+    "iso": "LI",
+    "iso3": "LIE"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDQw",
+    "en": "Lithuania",
+    "mn": "Литва",
+    "iso": "LT",
+    "iso3": "LTU"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDQy",
+    "en": "Luxembourg",
+    "mn": "Люксембург",
+    "iso": "LU",
+    "iso3": "LUX"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvODA3",
+    "en": "North Macedonia",
+    "mn": "Северна Македония",
+    "iso": "MK",
+    "iso3": "MKD"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDUw",
+    "en": "Madagascar",
+    "mn": "Мадагаскар",
+    "iso": "MG",
+    "iso3": "MDG"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDU0",
+    "en": "Malawi",
+    "mn": "Малави",
+    "iso": "MW",
+    "iso3": "MWI"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDU4",
+    "en": "Malaysia",
+    "mn": "Малайзия",
+    "iso": "MY",
+    "iso3": "MYS"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDYy",
+    "en": "Maldives",
+    "mn": "Малдиви",
+    "iso": "MV",
+    "iso3": "MDV"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDY2",
+    "en": "Mali",
+    "mn": "Мали",
+    "iso": "ML",
+    "iso3": "MLI"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDcw",
+    "en": "Malta",
+    "mn": "Малта",
+    "iso": "MT",
+    "iso3": "MLT"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTg0",
+    "en": "Marshall Islands",
+    "mn": "Маршалови острови",
+    "iso": "MH",
+    "iso3": "MHL"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDc4",
+    "en": "Mauritania",
+    "mn": "Мавритания",
+    "iso": "MR",
+    "iso3": "MRT"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDgw",
+    "en": "Mauritius",
+    "mn": "Мавриций",
+    "iso": "MU",
+    "iso3": "MUS"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDg0",
+    "en": "Mexico",
+    "mn": "Мексико",
+    "iso": "MX",
+    "iso3": "MEX"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTgz",
+    "en": "Micronesia (Federated States of)",
+    "mn": "Микронезия",
+    "iso": "FM",
+    "iso3": "FSM"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTA0",
+    "en": "Morocco",
+    "mn": "Мароко",
+    "iso": "MA",
+    "iso3": "MAR"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDk4",
+    "en": "Moldova, Republic of",
+    "mn": "Молдова",
+    "iso": "MD",
+    "iso3": "MDA"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDky",
+    "en": "Monaco",
+    "mn": "Монако",
+    "iso": "MC",
+    "iso3": "MCO"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNDk5",
+    "en": "Montenegro",
+    "mn": "Черна гора",
+    "iso": "ME",
+    "iso3": "MNE"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTA4",
+    "en": "Mozambique",
+    "mn": "Мозамбик",
+    "iso": "MZ",
+    "iso3": "MOZ"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTA0",
+    "en": "Myanmar",
+    "mn": "Мианмар",
+    "iso": "MM",
+    "iso3": "MMR"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTE2",
+    "en": "Namibia",
+    "mn": "Намибия",
+    "iso": "NA",
+    "iso3": "NAM"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTIw",
+    "en": "Nauru",
+    "mn": "Науру",
+    "iso": "NR",
+    "iso3": "NRU"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTI0",
+    "en": "Nepal",
+    "mn": "Непал",
+    "iso": "NP",
+    "iso3": "NPL"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTI4",
+    "en": "Netherlands",
+    "mn": "Нидерландия",
+    "iso": "NL",
+    "iso3": "NLD"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTU0",
+    "en": "New Zealand",
+    "mn": "Нова Зеландия",
+    "iso": "NZ",
+    "iso3": "NZL"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTU4",
+    "en": "Nicaragua",
+    "mn": "Никарагуа",
+    "iso": "NI",
+    "iso3": "NIC"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTYy",
+    "en": "Niger",
+    "mn": "Нигер",
+    "iso": "NE",
+    "iso3": "NER"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTY2",
+    "en": "Nigeria",
+    "mn": "Нигерия",
+    "iso": "NG",
+    "iso3": "NGA"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTc4",
+    "en": "Norway",
+    "mn": "Норвегия",
+    "iso": "NO",
+    "iso3": "NOR"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTEy",
+    "en": "Oman",
+    "mn": "Оман",
+    "iso": "OM",
+    "iso3": "OMN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTg2",
+    "en": "Pakistan",
+    "mn": "Пакистан",
+    "iso": "PK",
+    "iso3": "PAK"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTg1",
+    "en": "Palau",
+    "mn": "Палау",
+    "iso": "PW",
+    "iso3": "PLW"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTkx",
+    "en": "Panama",
+    "mn": "Панама",
+    "iso": "PA",
+    "iso3": "PAN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTk4",
+    "en": "Papua New Guinea",
+    "mn": "Папуа Нова Гвинея",
+    "iso": "PG",
+    "iso3": "PNG"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjAw",
+    "en": "Paraguay",
+    "mn": "Парагвай",
+    "iso": "PY",
+    "iso3": "PRY"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjA0",
+    "en": "Peru",
+    "mn": "Перу",
+    "iso": "PE",
+    "iso3": "PER"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjA4",
+    "en": "Philippines",
+    "mn": "Филипини",
+    "iso": "PH",
+    "iso3": "PHL"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjE2",
+    "en": "Poland",
+    "mn": "Полша",
+    "iso": "PL",
+    "iso3": "POL"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjIw",
+    "en": "Portugal",
+    "mn": "Португалия",
+    "iso": "PT",
+    "iso3": "PRT"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjM0",
+    "en": "Qatar",
+    "mn": "Катар",
+    "iso": "QA",
+    "iso3": "QAT"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjQy",
+    "en": "Romania",
+    "mn": "Румъния",
+    "iso": "RO",
+    "iso3": "ROU"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjQz",
+    "en": "Russian Federation",
+    "mn": "Русия",
+    "iso": "RU",
+    "iso3": "RUS"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjQ2",
+    "en": "Rwanda",
+    "mn": "Руанда",
+    "iso": "RW",
+    "iso3": "RWA"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjU5",
+    "en": "Saint Kitts and Nevis",
+    "mn": "Сейнт Китс и Невис",
+    "iso": "KN",
+    "iso3": "KNA"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjYy",
+    "en": "Saint Lucia",
+    "mn": "Сейнт Лусия",
+    "iso": "LC",
+    "iso3": "LCA"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjcw",
+    "en": "Saint Vincent and the Grenadines",
+    "mn": "Сейнт Винсент и Гренадини",
+    "iso": "VC",
+    "iso3": "VCT"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvODgy",
+    "en": "Samoa",
+    "mn": "Самоа",
+    "iso": "WS",
+    "iso3": "WSM"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzI5",
+    "en": "Sudan",
+    "mn": "Судан",
+    "iso": "SD",
+    "iso3": "SDN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjc0",
+    "en": "San Marino",
+    "mn": "Сан Марино",
+    "iso": "SM",
+    "iso3": "SMR"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjc4",
+    "en": "Sao Tome and Principe",
+    "mn": "Сао Томе и Принсипи",
+    "iso": "ST",
+    "iso3": "STP"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjgy",
+    "en": "Saudi Arabia",
+    "mn": "Саудитска Арабия",
+    "iso": "SA",
+    "iso3": "SAU"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjg2",
+    "en": "Senegal",
+    "mn": "Сенегал",
+    "iso": "SN",
+    "iso3": "SEN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjg4",
+    "en": "Serbia",
+    "mn": "Сърбия",
+    "iso": "RS",
+    "iso3": "SRB"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjkw",
+    "en": "Seychelles",
+    "mn": "Сейшелски острови",
+    "iso": "SC",
+    "iso3": "SYC"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjk0",
+    "en": "Sierra Leone",
+    "mn": "Сиера Леоне",
+    "iso": "SL",
+    "iso3": "SLE"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzAy",
+    "en": "Singapore",
+    "mn": "Сингапур",
+    "iso": "SG",
+    "iso3": "SGP"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzAz",
+    "en": "Slovakia",
+    "mn": "Словакия",
+    "iso": "SK",
+    "iso3": "SVK"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzA1",
+    "en": "Slovenia",
+    "mn": "Словения",
+    "iso": "SI",
+    "iso3": "SVN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvOTA",
+    "en": "Solomon Islands",
+    "mn": "Соломонови острови",
+    "iso": "SB",
+    "iso3": "SLB"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzA2",
+    "en": "Somalia",
+    "mn": "Сомалия",
+    "iso": "SO",
+    "iso3": "SOM"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzEw",
+    "en": "South Africa",
+    "mn": "ЮАР",
+    "iso": "ZA",
+    "iso3": "ZAF"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzI4",
+    "en": "South Sudan",
+    "mn": "Южен Судан",
+    "iso": "SS",
+    "iso3": "SSD"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzI0",
+    "en": "Spain",
+    "mn": "Испания",
+    "iso": "ES",
+    "iso3": "ESP"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvMTQ0",
+    "en": "Sri Lanka",
+    "mn": "Шри Ланка",
+    "iso": "LK",
+    "iso3": "LKA"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzQw",
+    "en": "Suriname",
+    "mn": "Суринам",
+    "iso": "SR",
+    "iso3": "SUR"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzQ4",
+    "en": "Eswatini",
+    "mn": "Есватини",
+    "iso": "SZ",
+    "iso3": "SWZ"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzUy",
+    "en": "Sweden",
+    "mn": "Швеция",
+    "iso": "SE",
+    "iso3": "SWE"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzU2",
+    "en": "Switzerland",
+    "mn": "Швейцария",
+    "iso": "CH",
+    "iso3": "CHE"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzYw",
+    "en": "Syrian Arab Republic",
+    "mn": "Сирия",
+    "iso": "SY",
+    "iso3": "SYR"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzYy",
+    "en": "Tajikistan",
+    "mn": "Таджикистан",
+    "iso": "TJ",
+    "iso3": "TJK"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvODM0",
+    "en": "Tanzania, United Republic of",
+    "mn": "Танзания",
+    "iso": "TZ",
+    "iso3": "TZA"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzY0",
+    "en": "Thailand",
+    "mn": "Тайланд",
+    "iso": "TH",
+    "iso3": "THA"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNjI2",
+    "en": "Timor-Leste",
+    "mn": "Източен Тимор",
+    "iso": "TL",
+    "iso3": "TLS"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzY4",
+    "en": "Togo",
+    "mn": "Того",
+    "iso": "TG",
+    "iso3": "TGO"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzc2",
+    "en": "Tonga",
+    "mn": "Тонга",
+    "iso": "TO",
+    "iso3": "TON"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzgw",
+    "en": "Trinidad and Tobago",
+    "mn": "Тринидад и Тобаго",
+    "iso": "TT",
+    "iso3": "TTO"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzg4",
+    "en": "Tunisia",
+    "mn": "Тунис",
+    "iso": "TN",
+    "iso3": "TUN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzky",
+    "en": "Türkiye",
+    "mn": "Турция",
+    "iso": "TR",
+    "iso3": "TUR"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzk1",
+    "en": "Turkmenistan",
+    "mn": "Туркменистан",
+    "iso": "TM",
+    "iso3": "TKM"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzk4",
+    "en": "Tuvalu",
+    "mn": "Тувалу",
+    "iso": "TV",
+    "iso3": "TUV"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvODAw",
+    "en": "Uganda",
+    "mn": "Уганда",
+    "iso": "UG",
+    "iso3": "UGA"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvODA0",
+    "en": "Ukraine",
+    "mn": "Украйна",
+    "iso": "UA",
+    "iso3": "UKR"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzg0",
+    "en": "United Arab Emirates",
+    "mn": "ОАЕ",
+    "iso": "AE",
+    "iso3": "ARE"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvODI2",
+    "en": "United Kingdom of Great Britain and Northern Ireland",
+    "mn": "Великобритания",
+    "iso": "GB",
+    "iso3": "GBR"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvODQw",
+    "en": "United States of America",
+    "mn": "САЩ",
+    "iso": "US",
+    "iso3": "USA"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvODU4",
+    "en": "Uruguay",
+    "mn": "Уругвай",
+    "iso": "UY",
+    "iso3": "URY"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvODYw",
+    "en": "Uzbekistan",
+    "mn": "Узбекистан",
+    "iso": "UZ",
+    "iso3": "UZB"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNTQ4",
+    "en": "Vanuatu",
+    "mn": "Вануату",
+    "iso": "VU",
+    "iso3": "VUT"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvODYy",
+    "en": "Venezuela (Bolivarian Republic of)",
+    "mn": "Венецуела",
+    "iso": "VE",
+    "iso3": "VEN"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzA0",
+    "en": "Viet Nam",
+    "mn": "Виетнам",
+    "iso": "VN",
+    "iso3": "VNM"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvODg3",
+    "en": "Yemen",
+    "mn": "Йемен",
+    "iso": "YE",
+    "iso3": "YEM"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvODk0",
+    "en": "Zambia",
+    "mn": "Замбия",
+    "iso": "ZM",
+    "iso3": "ZMB"
+  },
+  {
+    "id": "Z2lkOi8vZ3RuL0NvdW50cnkvNzE2",
+    "en": "Zimbabwe",
+    "mn": "Зимбабве",
+    "iso": "ZW",
+    "iso3": "ZWE"
+  }
+]

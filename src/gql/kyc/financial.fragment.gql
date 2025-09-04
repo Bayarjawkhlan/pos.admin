@@ -1,0 +1,13 @@
+fragment financial on Financial {
+  id
+  annualIncomeBracket
+  expectedTradingVolume
+  investmentExperience
+  investmentObjective
+  liquidAssets
+  netWorthBracket
+  primaryIncomeSource
+  riskTolerance
+  year
+  updatedAt
+}

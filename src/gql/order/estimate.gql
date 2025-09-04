@@ -1,0 +1,31 @@
+query estimateOrderCharges(
+  $exchange: String!
+  $price: Float!
+  $quantity: Float!
+  $symbol: String!
+  $accountNumber: String
+  $instrumentType: String
+  $amount: Float
+  $orderValue: Float
+  $securityType: String
+  $tradingSession: String
+) {
+  orderEstimate(
+    exchange: $exchange
+    price: $price
+    quantity: $quantity
+    symbol: $symbol
+    accountNumber: $accountNumber
+    instrumentType: $instrumentType
+    amount: $amount
+    orderValue: $orderValue
+    securityType: $securityType
+    tradingSession: $tradingSession
+  ) {
+    status
+    commission
+    reason
+    salesTax
+    stampDuty
+  }
+}

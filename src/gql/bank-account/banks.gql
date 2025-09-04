@@ -1,0 +1,8 @@
+query banks {
+  banks {
+    id
+    name
+    code
+    swiftCode
+  }
+}

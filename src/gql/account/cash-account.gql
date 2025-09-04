@@ -1,0 +1,36 @@
+query cashAccount($id: ID!) {
+  node(id: $id) {
+    ... on CashAccount {
+      id
+      number
+      name
+      accountType
+      status
+      balance
+      currency
+      buyingPower
+      blockedAmount
+      cashAvailableForWithdraw
+      pendingDeposit
+      pendingWithdraw
+      pendingSettle
+      odLimit
+      dailyOdLimit
+      dailyOdLimitEnabled
+      marginBlock
+      marginDue
+      dayMarginBlock
+      dayMarginDue
+      secondaryTradingLimit
+      unsettledTransfers
+      createdAt
+      updatedAt
+      securityAccounts {
+        id
+        number
+        name
+        status
+      }
+    }
+  }
+}

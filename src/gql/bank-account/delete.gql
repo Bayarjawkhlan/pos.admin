@@ -1,0 +1,3 @@
+mutation deleteBankAccount($input: deleteBankAccountInput!) {
+  deleteBankAccount(input: $input)
+}

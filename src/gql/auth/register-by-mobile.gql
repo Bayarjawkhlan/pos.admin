@@ -1,0 +1,3 @@
+mutation registerByMobile($phone: Phone!, $id: ID) {
+  registerByMobile(input: { phone: $phone, id: $id })
+}

@@ -1,0 +1,11 @@
+mutation createKYCFinancial($input: createKYCFinancialInput!) {
+  createKycFinancial(input: $input) {
+    ...financial
+    profile {
+      id
+      status
+      financialStatus
+      progress
+    }
+  }
+}

@@ -1,0 +1,24 @@
+query myWatchList($first: Int, $offset: Int, $filter: WatchlistFilter, $sort: SortFilter) {
+  watchlist(first: $first, offset: $offset, filter: $filter, sort: $sort) {
+    totalCount
+    nodes {
+      id
+      ticker {
+        id
+        currency
+        key
+        name
+        symbol
+        netChange
+        pctChange
+        marketCap
+        lowPrice
+        highPrice
+        openPrice
+        closePrice
+        volume
+        tradeTime
+      }
+    }
+  }
+}

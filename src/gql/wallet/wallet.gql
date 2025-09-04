@@ -1,0 +1,5 @@
+query wallet($id: ID!) {
+  node(id: $id) {
+    ...wallet
+  }
+}

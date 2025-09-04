@@ -1,0 +1,3 @@
+mutation registerByEmail($email: Email!, $id: ID) {
+  registerByEmail(input: { email: $email, id: $id })
+}

@@ -1,0 +1,7 @@
+schema: schema.graphql
+extensions:
+  endpoints:
+    local:
+      url: http://localhost:3000/graphql
+      headers:
+        Authorization: bearer ${VITE_TOKEN}

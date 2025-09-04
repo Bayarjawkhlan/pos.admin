@@ -1,0 +1,46 @@
+query order($id: ID!) {
+  node(id: $id) {
+    ... on Order {
+      id
+      number
+      orderStatus
+      orderType
+      accountNumber
+      exchange
+      symbol
+      orderSide
+      orderQty
+      filledQty
+      price
+      averagePrice
+      commission
+      cumulativeCommission
+      cumulativeOrderNetSettle
+      cumulativeOrderNetValue
+      cumulativeOrderValue
+      cumulativeQty
+      cumulativeStampDutyAmount
+      cumulativeVatAmount
+      currency
+      expiryDate
+      lastPrice
+      orderValue
+      orderReferenceId
+      orderRejectReason
+      tif
+      executionList {
+        id
+        status
+        price
+        commission
+        quantity
+        cumulativeQuantity
+        executedAt
+      }
+      vat
+      transactionTime
+      createdAt
+      updatedAt
+    }
+  }
+}

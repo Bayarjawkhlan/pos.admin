@@ -1,0 +1,3 @@
+mutation confirm($id: ID!, $code: String!) {
+  confirmableConfirm(input: { id: $id, token: $code })
+}
