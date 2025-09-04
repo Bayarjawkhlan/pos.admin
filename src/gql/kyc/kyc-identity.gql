@@ -1,0 +1,48 @@
+query kycIdentity {
+  kycProfile {
+    id
+    progress
+    firstName
+    lastName
+    rejectionReason
+    nationalityId
+    citizenshipId
+    status
+    citizenIdNumber
+    identityStatus
+    addressStatus
+    financialStatus
+    birthday
+    gender
+    documents {
+      id
+      documentNumber
+      documentType
+      status
+    }
+    financials {
+      ...financial
+    }
+
+    address {
+      id
+      countryId
+      stateId
+      state {
+        id
+        name
+      }
+      districtId
+      district {
+        id
+        name
+      }
+      quarterId
+      quarter {
+        id
+        name
+      }
+      address
+    }
+  }
+}

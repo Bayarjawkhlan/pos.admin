@@ -1,0 +1,6 @@
+mutation disableTotp($input: disableTotpInput!) {
+  disableTotp(input: $input) {
+    id
+    twoFactorEnabled
+  }
+}

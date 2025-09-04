@@ -1,0 +1,9 @@
+mutation enableTotp($input: enableTotpInput!) {
+  enableTotp(input: $input) {
+    backupCodes
+    user {
+      id
+      twoFactorEnabled
+    }
+  }
+}

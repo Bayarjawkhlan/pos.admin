@@ -1,0 +1,8 @@
+fragment wallet on Wallet {
+  id
+  name
+  account
+  balance
+  lastTransactionAt
+  updatedAt
+}

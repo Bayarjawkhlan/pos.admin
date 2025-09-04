@@ -1,0 +1,13 @@
+fragment ticker on Ticker {
+  id
+  key
+  symbol
+  name
+  volume
+  marketCap
+  lastPrice
+  volume
+  netChange
+  pctChange
+  currency
+}

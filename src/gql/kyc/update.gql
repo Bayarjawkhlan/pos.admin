@@ -1,0 +1,17 @@
+mutation updateKycProfile($input: updateKYCProfileInput!) {
+  updateKycProfile(input: $input) {
+    id
+    firstName
+    lastName
+    citizenshipId
+    citizenIdNumber
+    progress
+    status
+    updatedAt
+    identityStatus
+    addressStatus
+    financialStatus
+    birthday
+    gender
+  }
+}

@@ -1,0 +1,9 @@
+query districts($first: Int, $after: String, $filter: DistrictFilter, $sort: SortFilter) {
+  districts(first: $first, after: $after, filter: $filter, sort: $sort) {
+    nodes {
+      id
+      name
+      code
+    }
+  }
+}

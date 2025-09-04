@@ -1,0 +1,9 @@
+mutation toggleWatchList($key: String!, $add: Boolean) {
+  toggleWatchList(input: { key: $key, add: $add }) {
+    id
+    ticker {
+      id
+      inWatchlist
+    }
+  }
+}

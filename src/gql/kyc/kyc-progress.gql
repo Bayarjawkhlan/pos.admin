@@ -1,0 +1,17 @@
+query kycProgress {
+  kycProfile {
+    id
+    progress
+    rejectionReason
+    status
+    financialStatus
+    addressStatus
+    identityStatus
+  }
+  me {
+    id
+    fullName
+    number
+    status
+  }
+}

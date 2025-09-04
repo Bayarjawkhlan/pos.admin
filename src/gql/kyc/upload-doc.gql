@@ -1,0 +1,24 @@
+mutation uploadDoc($input: uploadKYCDocumentInput!) {
+  uploadKycDocument(input: $input) {
+    id
+    status
+    documentType
+    documentNumber
+    profile {
+      id
+      progress
+      status
+      identityStatus
+      addressStatus
+      financialStatus
+    }
+    frontFile {
+      id
+      contentType
+    }
+    backFile {
+      id
+      contentType
+    }
+  }
+}

@@ -1,0 +1,24 @@
+query articles($first: Int = 10, $after: String, $filter: ArticleFilter, $sort: SortFilter) {
+  articles(first: $first, after: $after, filter: $filter, sort: $sort) {
+    edges {
+      node {
+        id
+        key
+        headline
+        summary
+        imageUrl
+        symbols
+        exchanges
+        category
+        countryList
+        sourceText
+        url
+        createdAt
+      }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}

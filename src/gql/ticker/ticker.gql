@@ -1,0 +1,22 @@
+query ticker($key: String!) {
+  ticker(key: $key) {
+    id
+    key
+    name
+    symbol
+    prevClose
+    closePrice
+    pctChange
+    netChange
+    exchange
+    volume
+    top
+    lastPrice
+    marketCap
+    isDelayed
+    isTradable
+    currency
+    highPrice
+    lowPrice
+  }
+}

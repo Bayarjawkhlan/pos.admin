@@ -1,0 +1,38 @@
+query myPositions {
+  me {
+    id
+    positions {
+      accountNumber
+      accruedInterest
+      amount
+      availableQuantity
+      averageCost
+      averagePrice
+      baseExchange
+      baseSymbol
+      collectedCoupons
+      createdAt
+      currency
+      customerNumber
+      exchange
+      fullyRedeem
+      holdingType
+      id
+      investmentId
+      isin
+      lotSize
+      manualHoldingBlock
+      netHolding
+      pendingBuy
+      pendingSell
+      quantity
+      redeemAmount
+      securityType
+      sellPendingUnits
+      startDate
+      symbol
+      symbolDesc
+      totalCost
+    }
+  }
+}

@@ -1,0 +1,3 @@
+mutation createSignedId($id: ID, $expiresIn: Int, $purpose: String!) {
+  createSignedId(input: { id: $id, expiresIn: $expiresIn, purpose: $purpose })
+}

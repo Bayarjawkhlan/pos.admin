@@ -1,0 +1,13 @@
+query tickers($filter: TickerFilter, $first: Int = 10) {
+  tickers(first: $first, filter: $filter) {
+    nodes {
+      id
+      key
+      symbol
+      name
+      exchange
+      currency
+      status
+    }
+  }
+}

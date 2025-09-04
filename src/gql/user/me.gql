@@ -1,0 +1,59 @@
+query me($includeCashAccounts: Boolean = false, $includeBankAccounts: Boolean = false) {
+  me {
+    id
+    fullName
+    email
+    phone
+    avatar {
+      mediumUrl
+    }
+    username
+    number
+    status
+    language
+    twoFactorEnabled
+    customerToken @include(if: $includeCashAccounts)
+    cashAccounts @include(if: $includeCashAccounts) {
+      id
+      name
+      accountType
+      balance
+      blockedAmount
+      buyingPower
+      cashAvailableForWithdraw
+      createdAt
+      currency
+      dailyOdLimit
+      dailyOdLimitEnabled
+      data
+      dayMarginBlock
+      dayMarginDue
+      id
+      marginBlock
+      marginDue
+      metadata
+      number
+      odLimit
+      pendingDeposit
+      pendingSettle
+      pendingWithdraw
+      secondaryTradingLimit
+      status
+      unsettledTransfers
+    }
+    bankAccounts @include(if: $includeBankAccounts) {
+      id
+      name
+      bank {
+        id
+        code
+        name
+      }
+      isActive
+      number
+      isVerified
+    }
+    createdAt
+    updatedAt
+  }
+}

@@ -1,0 +1,9 @@
+query states($first: Int, $after: String, $filter: StateFilter, $sort: SortFilter) {
+  states(first: $first, after: $after, filter: $filter, sort: $sort) {
+    nodes {
+      id
+      name
+      code
+    }
+  }
+}

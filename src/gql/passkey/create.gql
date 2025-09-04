@@ -1,0 +1,5 @@
+mutation createPasskey($credential: JSON!, $label: String) {
+  createPasskey(input: { credential: $credential, label: $label }) {
+    ...passkey
+  }
+}

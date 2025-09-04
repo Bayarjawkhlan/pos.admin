@@ -1,0 +1,3 @@
+mutation assertionPasskey($username: String) {
+  assertionPasskey(input: { username: $username })
+}

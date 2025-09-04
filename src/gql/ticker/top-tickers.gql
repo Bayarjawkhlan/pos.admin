@@ -1,0 +1,8 @@
+query topTickers($exchange: String!) {
+  gainers: topTickers(exchange: $exchange, type: gainers) {
+    ...ticker
+  }
+  losers: topTickers(exchange: $exchange, type: losers) {
+    ...ticker
+  }
+}

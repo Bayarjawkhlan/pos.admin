@@ -1,0 +1,28 @@
+query recentOrders($after: String, $sort: SortFilter, $filter: OrderFilter, $first: Int) {
+  me {
+    id
+    orders(after: $after, sort: $sort, filter: $filter, first: $first) {
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+      edges {
+        node {
+          id
+          number
+          orderStatus
+          orderType
+          exchange
+          symbol
+          orderSide
+          orderQty
+          filledQty
+          price
+          averagePrice
+          currency
+          createdAt
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+query securityAccount($id: ID!) {
+  node(id: $id) {
+    ... on SecurityAccount {
+      id
+      number
+      name
+      accountType
+      status
+      secApprovalStatus
+      currency
+      cashAccountId
+      createdAt
+      updatedAt
+      accounts {
+        id
+        exchange
+        exchangeAccountId
+        exchangeAccountType
+        status
+        isPriceEnabled
+        tradingEnabled
+      }
+    }
+  }
+}

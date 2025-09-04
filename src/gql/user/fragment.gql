@@ -1,0 +1,13 @@
+fragment user on User {
+  ... on User {
+    id
+    fullName
+    email
+    phone
+    username
+    createdAt
+    updatedAt
+    lastSignInAt
+    lastSignInIp
+  }
+}

@@ -1,0 +1,3 @@
+mutation requestPasskey {
+  requestPasskey(input: {})
+}

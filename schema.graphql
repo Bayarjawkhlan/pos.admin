@@ -1,0 +1,3122 @@
+# This file was generated. Do not edit manually.
+
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+"Requires that exactly one field must be supplied and that field must not be `null`."
+directive @oneOf on INPUT_OBJECT
+
+"An object with an ID."
+interface BaseModelInterface {
+  createdAt: ISO8601DateTime!
+  errors: [ValidationError!]!
+  "ID of the object."
+  id: ID!
+  updatedAt: ISO8601DateTime!
+}
+
+"An object with an ID."
+interface Node {
+  "ID of the object."
+  id: ID!
+}
+
+"An object with an ID."
+interface ZonableInterface {
+  createdAt: ISO8601DateTime!
+  errors: [ValidationError!]!
+  geojson: JSON
+  "ID of the object."
+  id: ID!
+  name: String!
+  updatedAt: ISO8601DateTime!
+}
+
+"Account owner type"
+union AccountOwner = User
+
+type Address implements BaseModelInterface & Node {
+  address: String
+  apartment: String
+  city: String
+  company: String
+  coordinate: JSON
+  country: Country
+  countryId: ID
+  createdAt: ISO8601DateTime!
+  district: District
+  districtId: ID
+  districtName: String
+  errors: [ValidationError!]!
+  firstName: String
+  "ID of the object."
+  id: ID!
+  instructions: String
+  lastName: String
+  latitude: String
+  longitude: String
+  ownerId: ID!
+  ownerType: String
+  phone: Phone
+  postalCode: String
+  preferences: String
+  quarter: Quarter
+  quarterId: ID
+  quarterName: String
+  state: State
+  stateId: ID
+  street: String
+  updatedAt: ISO8601DateTime!
+  village: String
+  what3words: String
+  zipCode: String
+}
+
+"The connection type for Address."
+type AddressConnection {
+  "A list of edges."
+  edges: [AddressEdge!]!
+  "Metric response for chart / reporting"
+  metrics(dateField: String!, granularity: MetricGranularity!, sumField: String): [MetricResponse!]!
+  "A list of nodes."
+  nodes: [Address!]!
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  sum(field: String!): Float!
+  totalCount: Int!
+}
+
+"An edge in a connection."
+type AddressEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: Address!
+}
+
+type AmlCheck {
+  checkType: String!
+  checkedAt: ISO8601DateTime!
+  createdAt: ISO8601DateTime!
+  details: String
+  id: ID!
+  profile: Profile!
+  referenceId: String
+  result: String!
+  riskAssessment: RiskAssessment!
+  updatedAt: ISO8601DateTime!
+}
+
+type Article implements BaseModelInterface & Node {
+  caption: String
+  category: [String!]
+  countryList: [String!]
+  createdAt: ISO8601DateTime!
+  errors: [ValidationError!]!
+  exchanges: [String!]
+  headline: String
+  "ID of the object."
+  id: ID!
+  imageUrl: String
+  key: String!
+  language: String
+  lastUpdatedOn: ISO8601DateTime
+  metadata: JSON!
+  sourceText: String
+  summary: String
+  symbols: [String!]
+  updatedAt: ISO8601DateTime!
+  url: String
+}
+
+"The connection type for Article."
+type ArticleConnection {
+  "A list of edges."
+  edges: [ArticleEdge!]!
+  "Metric response for chart / reporting"
+  metrics(dateField: String!, granularity: MetricGranularity!, sumField: String): [MetricResponse!]!
+  "A list of nodes."
+  nodes: [Article!]!
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  sum(field: String!): Float!
+  totalCount: Int!
+}
+
+"An edge in a connection."
+type ArticleEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: Article!
+}
+
+type Bank implements BaseModelInterface & Node {
+  "Returns list of bank accounts"
+  accounts(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    filter: BankAccountFilter,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): BankAccountConnection!
+  code: String!
+  createdAt: ISO8601DateTime!
+  errors: [ValidationError!]!
+  icon: Image
+  "ID of the object."
+  id: ID!
+  isActive: Boolean!
+  name: String!
+  preferences: JSON
+  swiftCode: String
+  updatedAt: ISO8601DateTime!
+}
+
+type BankAccount implements BaseModelInterface & Node {
+  bank: Bank!
+  bankId: ID!
+  createdAt: ISO8601DateTime!
+  currency: String
+  errors: [ValidationError!]!
+  "ID of the object."
+  id: ID!
+  isActive: Boolean
+  isDefault: Boolean
+  isVerified: Boolean
+  name: String!
+  number: String!
+  owner: AccountOwner!
+  ownerId: ID!
+  ownerType: String!
+  position: Int
+  preferences: JSON
+  updatedAt: ISO8601DateTime!
+}
+
+"The connection type for BankAccount."
+type BankAccountConnection {
+  "A list of edges."
+  edges: [BankAccountEdge!]!
+  "Metric response for chart / reporting"
+  metrics(dateField: String!, granularity: MetricGranularity!, sumField: String): [MetricResponse!]!
+  "A list of nodes."
+  nodes: [BankAccount!]!
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  sum(field: String!): Float!
+  totalCount: Int!
+}
+
+"An edge in a connection."
+type BankAccountEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: BankAccount!
+}
+
+type BankTransaction implements BaseModelInterface & Node {
+  account: String
+  amount: Float
+  createdAt: ISO8601DateTime!
+  customDescription: String
+  customerAccount: String
+  customerBank: String
+  customerName: String
+  description: String
+  errors: [ValidationError!]!
+  "ID of the object."
+  id: ID!
+  number: String
+  preferences: JSON
+  ref: String
+  targetId: Int
+  targetType: String
+  transactionDate: ISO8601DateTime
+  typeCode: bankTransactionTypeCode
+  updatedAt: ISO8601DateTime!
+}
+
+"The connection type for BankTransaction."
+type BankTransactionConnection {
+  "A list of edges."
+  edges: [BankTransactionEdge!]!
+  "Metric response for chart / reporting"
+  metrics(dateField: String!, granularity: MetricGranularity!, sumField: String): [MetricResponse!]!
+  "A list of nodes."
+  nodes: [BankTransaction!]!
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  sum(field: String!): Float!
+  totalCount: Int!
+}
+
+"An edge in a connection."
+type BankTransactionEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: BankTransaction!
+}
+
+type BankTransfer implements BaseModelInterface & Node {
+  accountName: String
+  accountNumber: String
+  amount: Float
+  bankCode: String
+  cgw: CGW
+  cgwId: ID
+  createdAt: ISO8601DateTime!
+  currency: String
+  description: String
+  errors: [ValidationError!]!
+  "ID of the object."
+  id: ID!
+  number: String!
+  preferences: JSON
+  response: JSON
+  status: BankTransferStatus
+  targetId: Int
+  targetType: String
+  updatedAt: ISO8601DateTime!
+}
+
+"The connection type for BankTransfer."
+type BankTransferConnection {
+  "A list of edges."
+  edges: [BankTransferEdge!]!
+  "Metric response for chart / reporting"
+  metrics(dateField: String!, granularity: MetricGranularity!, sumField: String): [MetricResponse!]!
+  "A list of nodes."
+  nodes: [BankTransfer!]!
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  sum(field: String!): Float!
+  totalCount: Int!
+}
+
+"An edge in a connection."
+type BankTransferEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: BankTransfer!
+}
+
+"File attachment blob"
+type Blob {
+  byteSize: Int
+  checkSum: String
+  contentType: String
+  filename: String
+  id: ID!
+  key: String
+  metadata: JSON
+  serviceName: String
+}
+
+type CGW implements BaseModelInterface & Node {
+  balance: Float
+  createdAt: ISO8601DateTime!
+  errors: [ValidationError!]!
+  "ID of the object."
+  id: ID!
+  isCredit: Boolean!
+  minBalance: Float
+  name: String!
+  preferences: JSON
+  status: BankCGWStatus!
+  transferAccount: String
+  transferPassword: String
+  transferUsername: String
+  type: String!
+  updatedAt: ISO8601DateTime!
+}
+
+"The connection type for CGW."
+type CGWConnection {
+  "A list of edges."
+  edges: [CGWEdge!]!
+  "Metric response for chart / reporting"
+  metrics(dateField: String!, granularity: MetricGranularity!, sumField: String): [MetricResponse!]!
+  "A list of nodes."
+  nodes: [CGW!]!
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  sum(field: String!): Float!
+  totalCount: Int!
+}
+
+"An edge in a connection."
+type CGWEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: CGW!
+}
+
+type Card implements BaseModelInterface & Node {
+  bank: String
+  cardholder: String!
+  createdAt: ISO8601DateTime!
+  errors: [ValidationError!]!
+  "ID of the object."
+  id: ID!
+  metadata: JSON
+  number: String
+  status: String!
+  updatedAt: ISO8601DateTime!
+}
+
+type CashAccount implements BaseModelInterface & Node {
+  accountType: String!
+  balance: Float!
+  blockedAmount: Float!
+  buyingPower: Float!
+  cashAvailableForWithdraw: Float!
+  createdAt: ISO8601DateTime!
+  currency: String!
+  dailyOdLimit: Float!
+  dailyOdLimitEnabled: Float!
+  data: JSON!
+  dayMarginBlock: Float!
+  dayMarginDue: Float!
+  errors: [ValidationError!]!
+  "ID of the object."
+  id: ID!
+  marginBlock: Float!
+  marginDue: Float!
+  metadata: JSON!
+  name: String
+  number: String!
+  odLimit: Float!
+  pendingDeposit: Float!
+  pendingSettle: Float!
+  pendingWithdraw: Float!
+  secondaryTradingLimit: Float!
+  securityAccounts: [SecurityAccount!]!
+  status: String
+  unsettledTransfers: Float!
+  updatedAt: ISO8601DateTime!
+  user: User!
+}
+
+"The connection type for CashAccount."
+type CashAccountConnection {
+  "A list of edges."
+  edges: [CashAccountEdge!]!
+  "Metric response for chart / reporting"
+  metrics(dateField: String!, granularity: MetricGranularity!, sumField: String): [MetricResponse!]!
+  "A list of nodes."
+  nodes: [CashAccount!]!
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  sum(field: String!): Float!
+  totalCount: Int!
+}
+
+"An edge in a connection."
+type CashAccountEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: CashAccount!
+}
+
+type Consent {
+  accepted: Boolean!
+  acceptedAt: ISO8601DateTime
+  consentType: String!
+  createdAt: ISO8601DateTime!
+  id: ID!
+  ipAddress: String
+  profile: Profile!
+  signatureUrl: String
+  updatedAt: ISO8601DateTime!
+  userAgent: String
+}
+
+type Country implements BaseModelInterface & Node & ZonableInterface {
+  createdAt: ISO8601DateTime!
+  currency: String
+  errors: [ValidationError!]!
+  geojson: JSON
+  "ID of the object."
+  id: ID!
+  iso: String
+  iso3: String
+  isoName: String
+  isoNumeric: Int
+  name: String!
+  numCode: Int
+  preferences: JSON
+  states: [State!]!
+  statesRequired: Boolean!
+  updatedAt: ISO8601DateTime!
+  zipCodeRequired: Boolean!
+}
+
+type District implements BaseModelInterface & Node & ZonableInterface {
+  code: String
+  createdAt: ISO8601DateTime!
+  errors: [ValidationError!]!
+  geojson: JSON
+  "ID of the object."
+  id: ID!
+  name: String!
+  preferences: JSON
+  quarters: [Quarter!]!
+  state: State
+  updatedAt: ISO8601DateTime!
+}
+
+"The connection type for District."
+type DistrictConnection {
+  "A list of edges."
+  edges: [DistrictEdge!]!
+  "Metric response for chart / reporting"
+  metrics(dateField: String!, granularity: MetricGranularity!, sumField: String): [MetricResponse!]!
+  "A list of nodes."
+  nodes: [District!]!
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  sum(field: String!): Float!
+  totalCount: Int!
+}
+
+"An edge in a connection."
+type DistrictEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: District!
+}
+
+type Document implements BaseModelInterface & Node {
+  "The back side of the document image (if applicable)."
+  backFile: Blob
+  createdAt: ISO8601DateTime!
+  documentNumber: String
+  documentType: String!
+  errors: [ValidationError!]!
+  expiryDate: ISO8601Date
+  "The front side of the document image."
+  frontFile: Blob!
+  "ID of the object."
+  id: ID!
+  issueDate: ISO8601Date
+  issuingCountry: String!
+  profile: Profile!
+  rejectedAt: ISO8601DateTime
+  rejectionReason: String
+  status: String!
+  updatedAt: ISO8601DateTime!
+  verifiedAt: ISO8601DateTime
+  verifiedBy: User
+}
+
+type ExchangeAccount implements BaseModelInterface & Node {
+  commissionType: Int
+  createdAt: ISO8601DateTime!
+  custodian: String
+  data: JSON!
+  errors: [ValidationError!]!
+  exchange: String!
+  exchangeAccountId: Int
+  exchangeAccountType: String
+  feedLevel: Int
+  "ID of the object."
+  id: ID!
+  isPriceEnabled: Boolean!
+  metadata: JSON!
+  securityAccountId: Int!
+  status: String
+  tradingEnabled: Boolean!
+  updatedAt: ISO8601DateTime!
+  userId: Int!
+}
+
+"The connection type for ExchangeAccount."
+type ExchangeAccountConnection {
+  "A list of edges."
+  edges: [ExchangeAccountEdge!]!
+  "Metric response for chart / reporting"
+  metrics(dateField: String!, granularity: MetricGranularity!, sumField: String): [MetricResponse!]!
+  "A list of nodes."
+  nodes: [ExchangeAccount!]!
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  sum(field: String!): Float!
+  totalCount: Int!
+}
+
+"An edge in a connection."
+type ExchangeAccountEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: ExchangeAccount!
+}
+
+type Financial implements BaseModelInterface & Node {
+  annualIncomeBracket: String!
+  createdAt: ISO8601DateTime!
+  errors: [ValidationError!]!
+  expectedTradingVolume: String!
+  "ID of the object."
+  id: ID!
+  investmentExperience: String!
+  investmentObjective: String!
+  liquidAssets: String
+  netWorthBracket: String!
+  primaryIncomeSource: String!
+  profile: Profile!
+  riskTolerance: String!
+  status: String!
+  updatedAt: ISO8601DateTime!
+  year: Int!
+}
+
+type Image {
+  attachmentId: ID
+  blob: Blob
+  contentType: String
+  createdAt: ISO8601DateTime
+  fileName: String
+  fileSize: Float
+  id: ID!
+  largeUrl: String!
+  mediumUrl: String!
+  metadata: JSON
+  name: String
+  signedId: ID
+  thumbUrl: String!
+  url(
+    "Extracts an area from an image. The first two arguments are the left and top edges of area to extract, while the last two arguments are the width and height of the area to extract."
+    crop: [Int!],
+    format: String,
+    "Image quality: 0-100"
+    quality: Int = 80,
+    "Resizes the image to fit within the specified dimensions while retaining the original aspect ratio. If necessary, will pad the remaining area with transparent color if source image has alpha channel, black otherwise."
+    resizeAndPad: [Int!],
+    "Resizes the image to fill the specified dimensions while retaining the original aspect ratio. If necessary, will crop the image in the larger dimension."
+    resizeToFill: [Int!],
+    "Resizes the image to fit within the specified dimensions while retaining the original aspect ratio.Will downsize the image if it's larger than the specified dimensions or upsize if it's smaller."
+    resizeToFit: [Int!],
+    "Downsizes the image to fit within the specified dimensions while retaining the original aspect ratio.Will only resize the image if it's larger than the specified dimensions."
+    resizeToLimit: [Int!]
+  ): String!
+}
+
+type JobStatus implements BaseModelInterface & Node {
+  arguments: JSON
+  at: Int
+  completedAt: ISO8601DateTime
+  createdAt: ISO8601DateTime!
+  errorMessage: String
+  errors: [ValidationError!]!
+  file: String
+  "ID of the object."
+  id: ID!
+  jobId: String
+  jobType: String
+  message: String
+  percentComplete: Int
+  result: JSON
+  startedAt: ISO8601DateTime
+  status: String!
+  total: Int
+  updatedAt: ISO8601DateTime!
+  userId: ID
+}
+
+"The connection type for JobStatus."
+type JobStatusConnection {
+  "A list of edges."
+  edges: [JobStatusEdge!]!
+  "Metric response for chart / reporting"
+  metrics(dateField: String!, granularity: MetricGranularity!, sumField: String): [MetricResponse!]!
+  "A list of nodes."
+  nodes: [JobStatus!]!
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  sum(field: String!): Float!
+  totalCount: Int!
+}
+
+"An edge in a connection."
+type JobStatusEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: JobStatus!
+}
+
+type Market implements BaseModelInterface & Node {
+  createdAt: ISO8601DateTime!
+  currency: String!
+  errors: [ValidationError!]!
+  "ID of the object."
+  id: ID!
+  name: String!
+  symbol: String!
+  tifTypes: String
+  updatedAt: ISO8601DateTime!
+}
+
+"Generic response for a chart / metric"
+type MetricResponse {
+  label: String!
+  value: Float!
+}
+
+type Mutation {
+  accountDeposit(
+    "Parameters for accountDeposit"
+    input: accountDepositInput!
+  ): accountDepositPayload
+  accountWithdraw(
+    "Parameters for accountWithdraw"
+    input: accountWithdrawInput!
+  ): accountWithdrawPayload
+  assertionPasskey(
+    "Parameters for assertionPasskey"
+    input: assertionPasskeyInput!
+  ): JSON
+  "Create bank CGW"
+  bankCgwCreate(
+    "Parameters for bankCGWCreate"
+    input: bankCGWCreateInput!
+  ): CGW
+  "Get statements from bank CGW"
+  bankCgwStatements(
+    "Parameters for bankCGWStatements"
+    input: bankCGWStatementsInput!
+  ): [BankTransaction!]
+  "Update bank CGW"
+  bankCgwUpdate(
+    "Parameters for bankCGWUpdate"
+    input: bankCGWUpdateInput!
+  ): CGW
+  cancelOrder(
+    "Parameters for cancelOrder"
+    input: cancelOrderInput!
+  ): Order
+  "Change password using current password"
+  changePassword(
+    "Parameters for changePassword"
+    input: changePasswordInput!
+  ): User
+  "Check account name by account number"
+  checkAccountName(
+    "Parameters for checkAccountName"
+    input: checkAccountNameInput!
+  ): String
+  "Used to confirm email, phone, etc. If the confirmation is successful, it will return the signed id for approved objects"
+  confirmableConfirm(
+    "Parameters for confirmableConfirm"
+    input: confirmableConfirmInput!
+  ): ID
+  "Resend confirmation email, phone, etc."
+  confirmableResend(
+    "Parameters for confirmableResend"
+    input: confirmableResendInput!
+  ): ID
+  createAddress(
+    "Parameters for createAddress"
+    input: createAddressInput!
+  ): Address
+  "Create bank"
+  createBank(
+    "Parameters for createBank"
+    input: createBankInput!
+  ): Bank
+  "Create bank account"
+  createBankAccount(
+    "Parameters for createBankAccount"
+    input: createBankAccountInput!
+  ): BankAccount
+  createKycFinancial(
+    "Parameters for createKYCFinancial"
+    input: createKYCFinancialInput!
+  ): Financial
+  createNote(
+    "Parameters for createNote"
+    input: createNoteInput!
+  ): Note
+  createPasskey(
+    "Parameters for createPasskey"
+    input: createPasskeyInput!
+  ): Passkey
+  createRelatedParty(
+    "Parameters for createRelatedParty"
+    input: createRelatedPartyInput!
+  ): createRelatedPartyPayload
+  createSignedId(
+    "Parameters for createSignedId"
+    input: createSignedIdInput!
+  ): ID
+  createTax(
+    "Parameters for createTax"
+    input: createTaxInput!
+  ): createTaxPayload
+  deleteAddress(
+    "Parameters for deleteAddress"
+    input: deleteAddressInput!
+  ): Boolean
+  "Destroy bank account"
+  deleteBankAccount(
+    "Parameters for deleteBankAccount"
+    input: deleteBankAccountInput!
+  ): Boolean
+  deleteDevice(
+    "Parameters for deleteDevice"
+    input: deleteDeviceInput!
+  ): Boolean
+  deleteEmail(
+    "Parameters for deleteEmail"
+    input: deleteEmailInput!
+  ): Boolean
+  deleteNote(
+    "Parameters for deleteNote"
+    input: deleteNoteInput!
+  ): Boolean
+  deletePasskey(
+    "Parameters for deletePasskey"
+    input: deletePasskeyInput!
+  ): Boolean
+  deletePhone(
+    "Parameters for deletePhone"
+    input: deletePhoneInput!
+  ): Boolean
+  "Soft delete a user by clearing personal data and removing associated records"
+  deleteUser(
+    "Parameters for deleteUser"
+    input: deleteUserInput!
+  ): User
+  "Disable TOTP for the user"
+  disableTotp(
+    "Parameters for disableTotp"
+    input: disableTotpInput!
+  ): User
+  "Enable TOTP for the user"
+  enableTotp(
+    "Parameters for enableTotp"
+    input: enableTotpInput!
+  ): enableTotpPayload
+  "Password forget mutation"
+  forgetPassword(
+    "Parameters for forgetPassword"
+    input: forgetPasswordInput!
+  ): ID
+  placeEquity(
+    "Parameters for PlaceEquity"
+    input: PlaceEquityInput!
+  ): Order
+  provideKycConsent(
+    "Parameters for provideKYCConsent"
+    input: provideKYCConsentInput!
+  ): provideKYCConsentPayload
+  "Start registration flow by email. Returns phone confirmable id. If user already logged in it will add email to user"
+  registerByEmail(
+    "Parameters for registerByEmail"
+    input: registerByEmailInput!
+  ): ID
+  "Start registration flow by phone. Returns phone confirmable id. If user already logged in it will add phone to user"
+  registerByMobile(
+    "Parameters for registerByMobile"
+    input: registerByMobileInput!
+  ): ID
+  "Set password and create user"
+  registerByPassword(
+    "Parameters for registerByPassword"
+    input: registerByPasswordInput!
+  ): User
+  removeFromWatchList(
+    "Parameters for removeFromWatchList"
+    input: removeFromWatchListInput!
+  ): Boolean
+  requestPasskey(
+    "Parameters for requestPasskey"
+    input: requestPasskeyInput!
+  ): JSON
+  "Request Enable TOTP for the user"
+  requestTotp(
+    "Parameters for requestTotp"
+    input: requestTotpInput!
+  ): requestTotpPayload
+  "Creates new password using confirmation"
+  resetPassword(
+    "Parameters for resetPassword"
+    input: resetPasswordInput!
+  ): ID
+  toggleWatchList(
+    "Parameters for toggleWatchList"
+    input: toggleWatchListInput!
+  ): Watchlist
+  updateAddress(
+    "Parameters for updateAddress"
+    input: updateAddressInput!
+  ): Address
+  "Update bank"
+  updateBank(
+    "Parameters for updateBank"
+    input: updateBankInput!
+  ): Bank
+  "Update bank account"
+  updateBankAccount(
+    "Parameters for updateBankAccount"
+    input: updateBankAccountInput!
+  ): BankAccount
+  updateDevice(
+    "Parameters for updateDevice"
+    input: updateDeviceInput!
+  ): UserDevice
+  updateKycProfile(
+    "Parameters for updateKYCProfile"
+    input: updateKYCProfileInput!
+  ): Profile
+  updateNote(
+    "Parameters for updateNote"
+    input: updateNoteInput!
+  ): Note
+  updatePasskey(
+    "Parameters for updatePasskey"
+    input: updatePasskeyInput!
+  ): Passkey
+  "Update user info"
+  updateUser(
+    "Parameters for updateUser"
+    input: updateUserInput!
+  ): User
+  "Uploads a KYC document for the user. This mutation allows users to submit identity and verification documents as part of the KYC process."
+  uploadKycDocument(
+    "Parameters for uploadKYCDocument"
+    input: uploadKYCDocumentInput!
+  ): Document
+}
+
+type Note implements BaseModelInterface & Node {
+  author: User
+  body: String!
+  createdAt: ISO8601DateTime!
+  errors: [ValidationError!]!
+  "ID of the object."
+  id: ID!
+  internalOnly: Boolean!
+  metadata: JSON
+  subject: Node!
+  updatedAt: ISO8601DateTime!
+}
+
+type Order implements BaseModelInterface & Node {
+  accountNumber: String!
+  averagePrice: Float
+  commission: Float
+  createdAt: ISO8601DateTime!
+  cumulativeCommission: Float
+  cumulativeOrderNetSettle: Float
+  cumulativeOrderNetValue: Float
+  cumulativeOrderValue: Float
+  cumulativeQty: Float
+  cumulativeStampDutyAmount: Float
+  cumulativeVatAmount: Float
+  currency: String!
+  data: JSON
+  errors: [ValidationError!]!
+  exchange: String!
+  executionList: [OrderExecution!]
+  expiryDate: ISO8601DateTime
+  filledQty: Float
+  "ID of the object."
+  id: ID!
+  investmentId: String
+  isPartialRedemption: String
+  lastPrice: Float
+  lastUpdatedDate: ISO8601DateTime
+  marketCode: String!
+  metadata: JSON
+  number: String!
+  optionStrategy: String
+  orderId: String
+  orderNumber: String
+  orderQty: Float
+  orderReferenceId: String
+  orderRejectReason: String
+  orderSide: OrderSide!
+  orderStatus: String!
+  orderType: OrderTypeEnum
+  orderValue: Float
+  originalOrderId: String
+  price: Float
+  regulatoryFee: Float
+  securityType: String
+  settleCurrency: String
+  stopPrice: Float
+  symbol: String!
+  tif: TifEnum
+  tradingSession: String
+  trailByValue: Float
+  trailStpEstPrice: Float
+  trailType: String
+  transactionTime: ISO8601DateTime
+  updatedAt: ISO8601DateTime!
+  userId: Int!
+  vat: Float
+}
+
+"The connection type for Order."
+type OrderConnection {
+  "A list of edges."
+  edges: [OrderEdge!]!
+  "Metric response for chart / reporting"
+  metrics(dateField: String!, granularity: MetricGranularity!, sumField: String): [MetricResponse!]!
+  "A list of nodes."
+  nodes: [Order!]!
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  sum(field: String!): Float!
+  totalCount: Int!
+}
+
+"An edge in a connection."
+type OrderEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: Order!
+}
+
+type OrderEstimate {
+  "Commission charges for the order"
+  commission: Float
+  "Reason message for the estimation result"
+  reason: String!
+  "Rejection code if any"
+  rejectCode: Int!
+  "Sales tax charges"
+  salesTax: Float
+  "Stamp duty charges"
+  stampDuty: Float
+  "Status of the estimation"
+  status: String
+  "Value Added Tax charges"
+  vat: Float
+}
+
+"Order execution details"
+type OrderExecution {
+  "Commission charged for the execution"
+  commission: Float!
+  "Cumulative quantity executed for the order"
+  cumulativeQuantity: Float!
+  "Timestamp when the order was executed"
+  executedAt: ISO8601DateTime!
+  "Unique identifier for the order execution"
+  id: ID!
+  "Price at which the asset was executed"
+  price: Float!
+  "Quantity of the asset executed"
+  quantity: Float!
+  "Status of the order execution"
+  status: String!
+}
+
+"Information about pagination in a connection."
+type PageInfo {
+  "When paginating forwards, the cursor to continue."
+  endCursor: String
+  "When paginating forwards, are there more items?"
+  hasNextPage: Boolean!
+  "When paginating backwards, are there more items?"
+  hasPreviousPage: Boolean!
+  "When paginating backwards, the cursor to continue."
+  startCursor: String
+}
+
+type Passkey implements BaseModelInterface & Node {
+  createdAt: ISO8601DateTime!
+  errors: [ValidationError!]!
+  externalId: String
+  "ID of the object."
+  id: ID!
+  isActive: Boolean!
+  label: String
+  lastUsedAt: ISO8601DateTime
+  publicKey: String
+  signCount: Int
+  updatedAt: ISO8601DateTime!
+  userAgent: String
+  userId: Int!
+}
+
+type Position implements BaseModelInterface & Node {
+  accountNumber: String!
+  accruedInterest: Float!
+  amount: Float!
+  availableQuantity: Float!
+  averageCost: Float!
+  averagePrice: Float!
+  baseExchange: String
+  baseSymbol: String
+  collectedCoupons: Float!
+  createdAt: ISO8601DateTime!
+  currency: String
+  customerNumber: String
+  errors: [ValidationError!]!
+  exchange: String!
+  fullyRedeem: Int!
+  holdingType: Int!
+  "ID of the object."
+  id: ID!
+  investmentId: String
+  isin: String
+  lotSize: Int
+  manualHoldingBlock: Float!
+  netHolding: Float!
+  pendingBuy: Float!
+  pendingSell: Float!
+  quantity: Float!
+  redeemAmount: Float!
+  securityType: String
+  sellPendingUnits: Float!
+  startDate: String
+  symbol: String!
+  symbolDesc: String
+  totalCost: Float!
+  updatedAt: ISO8601DateTime!
+  userId: Int!
+}
+
+type Profile implements BaseModelInterface & Node {
+  address: Address
+  addressStatus: String!
+  approvalAt: ISO8601DateTime
+  approvedBy: User
+  birthday: ISO8601Date
+  citizenIdNumber: String
+  citizenship: Country
+  citizenshipId: ID
+  civilId: String
+  consents: [Consent!]!
+  createdAt: ISO8601DateTime!
+  documents: [Document!]!
+  drivingLicense: String
+  errors: [ValidationError!]!
+  familyName: String
+  financialStatus: String!
+  financials: [Financial!]!
+  firstName: String
+  gender: Gender
+  "ID of the object."
+  id: ID!
+  identityStatus: String!
+  lastName: String
+  middleName: String
+  nationality: Country
+  nationalityId: ID
+  passportNumber: String
+  progress: Int!
+  rejectedAt: ISO8601DateTime
+  rejectedBy: User
+  rejectionReason: String
+  relatedParties: [RelatedParty!]!
+  reviews: [Review!]!
+  riskAssessments: [RiskAssessment!]!
+  riskStatus: String!
+  sanctionScreenings: [SanctionScreening!]!
+  status: String!
+  taxes: [Tax!]!
+  updatedAt: ISO8601DateTime!
+  user: User!
+}
+
+type Quarter implements BaseModelInterface & Node & ZonableInterface {
+  code: String
+  createdAt: ISO8601DateTime!
+  district: District
+  errors: [ValidationError!]!
+  geojson: JSON
+  "ID of the object."
+  id: ID!
+  name: String!
+  preferences: JSON
+  updatedAt: ISO8601DateTime!
+}
+
+"The connection type for Quarter."
+type QuarterConnection {
+  "A list of edges."
+  edges: [QuarterEdge!]!
+  "Metric response for chart / reporting"
+  metrics(dateField: String!, granularity: MetricGranularity!, sumField: String): [MetricResponse!]!
+  "A list of nodes."
+  nodes: [Quarter!]!
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  sum(field: String!): Float!
+  totalCount: Int!
+}
+
+"An edge in a connection."
+type QuarterEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: Quarter!
+}
+
+type Query {
+  "Returns list of addresses"
+  addresses(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): AddressConnection!
+  articles(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    filter: ArticleFilter,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): ArticleConnection!
+  "Returns list of bank accounts"
+  bankAccounts(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    filter: BankAccountFilter,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): BankAccountConnection!
+  "Returns list of bank transactions"
+  bankTransactions(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    filter: BankTransactionFilter,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): BankTransactionConnection!
+  "Returns list of bank transfers"
+  bankTransfers(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    filter: BankTransferFilter,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): BankTransferConnection!
+  "Returns list of bank"
+  banks: [Bank!]!
+  "Returns list of bank cgw"
+  cgws(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): CGWConnection!
+  "Returns list of country"
+  countries: [Country!]!
+  "Returns list of districts"
+  districts(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    filter: DistrictFilter,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): DistrictConnection!
+  "Returns list of exchange accounts"
+  exchangeAccounts(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    filter: AccountFilter,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): ExchangeAccountConnection!
+  "Returns list of exchange cash accounts"
+  exchangeCashAccounts(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    filter: CashAccountFilter,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): CashAccountConnection!
+  "Returns list of exchange security accounts"
+  exchangeSecurityAccounts(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    filter: SecurityAccountFilter,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): SecurityAccountConnection!
+  "Background job statuses"
+  jobStatuses(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    filter: JobStatusFilter,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): JobStatusConnection!
+  kycProfile: Profile
+  "Return list of markets"
+  markets: [Market!]
+  "Return current logged in user info"
+  me: User
+  "Fetches an object given its ID."
+  node(
+    "ID of the object."
+    id: ID!
+  ): Node
+  "Fetches a list of objects given a list of IDs."
+  nodes(
+    "ID of the object."
+    ids: [ID!]!
+  ): [Node!]
+  "Returns estimated charges for placing an order including commission, taxes and other fees"
+  orderEstimate(
+    "Account number is required for all asset types"
+    accountNumber: String,
+    "Amount is required for Fixed Income/Fund only"
+    amount: Float,
+    "Exchange is required for all asset types"
+    exchange: String!,
+    "Instrument type is optional for all asset types"
+    instrumentType: String,
+    "Order value is optional for Equity/Spot only"
+    orderValue: Float,
+    "Price is required for Equity, Option, Fixed Income and Spot"
+    price: Float!,
+    "Quantity is optional for Equity/Spot, required for Option, N/A for Fixed Income/Fund"
+    quantity: Float,
+    "Security type is optional for all asset types"
+    securityType: String,
+    "Symbol is required for all asset types"
+    symbol: String!,
+    "Trading session is optional for Equity/Spot only"
+    tradingSession: String
+  ): OrderEstimate!
+  orders(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    filter: OrderFilter,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): OrderConnection!
+  "Returns list of quarters"
+  quarters(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    filter: QuarterFilter,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): QuarterConnection!
+  "Returns list of states"
+  states(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    filter: StateFilter,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): StateConnection!
+  ticker(key: String): Ticker!
+  tickers(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    filter: TickerFilter,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): TickerConnection!
+  "Returns top tickers by gainers, losers, most active volume and value"
+  topTickers(exchange: String! = "NSDQ", type: TopTicker = gainers): [Ticker!]!
+  "Returns list of users"
+  users(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    filter: UserFilter,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): UserConnection!
+  watchlist(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    filter: WatchlistFilter,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): WatchlistConnection!
+}
+
+type Reference implements BaseModelInterface & Node {
+  createdAt: ISO8601DateTime!
+  description: String
+  errors: [ValidationError!]!
+  "ID of the object."
+  id: ID!
+  kind: String!
+  metadata: JSON
+  number: String!
+  reference: String
+  updatedAt: ISO8601DateTime!
+}
+
+type RelatedParty {
+  country: String!
+  createdAt: ISO8601DateTime!
+  documentUrl: String
+  id: ID!
+  name: String!
+  profile: Profile!
+  relationType: String!
+  updatedAt: ISO8601DateTime!
+}
+
+type Review {
+  createdAt: ISO8601DateTime!
+  id: ID!
+  notes: String
+  outcome: String!
+  profile: Profile!
+  reviewDate: ISO8601DateTime!
+  reviewType: String!
+  reviewer: User!
+  updatedAt: ISO8601DateTime!
+}
+
+type RiskAssessment {
+  amlChecks: [AmlCheck!]!
+  assessedAt: ISO8601DateTime
+  assessedBy: User
+  createdAt: ISO8601DateTime!
+  id: ID!
+  notes: String
+  profile: Profile!
+  riskLevel: String!
+  riskLitigation: Boolean!
+  riskPep: Boolean!
+  riskPepRelationship: Boolean!
+  riskSanctions: Boolean!
+  riskScore: Int!
+  updatedAt: ISO8601DateTime!
+}
+
+type SanctionScreening {
+  createdAt: ISO8601DateTime!
+  details: String
+  id: ID!
+  profile: Profile!
+  result: String!
+  sanctionListType: String!
+  screeningDate: ISO8601DateTime!
+  updatedAt: ISO8601DateTime!
+}
+
+type SecurityAccount implements BaseModelInterface & Node {
+  accountType: String!
+  accounts: [ExchangeAccount!]!
+  cashAccountId: Int!
+  createdAt: ISO8601DateTime!
+  currency: String!
+  data: JSON!
+  errors: [ValidationError!]!
+  "ID of the object."
+  id: ID!
+  metadata: JSON!
+  name: String
+  number: String!
+  secApprovalStatus: String
+  status: String
+  updatedAt: ISO8601DateTime!
+  userId: Int!
+}
+
+"The connection type for SecurityAccount."
+type SecurityAccountConnection {
+  "A list of edges."
+  edges: [SecurityAccountEdge!]!
+  "Metric response for chart / reporting"
+  metrics(dateField: String!, granularity: MetricGranularity!, sumField: String): [MetricResponse!]!
+  "A list of nodes."
+  nodes: [SecurityAccount!]!
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  sum(field: String!): Float!
+  totalCount: Int!
+}
+
+"An edge in a connection."
+type SecurityAccountEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: SecurityAccount!
+}
+
+type State implements BaseModelInterface & Node & ZonableInterface {
+  code: String
+  country: Country
+  createdAt: ISO8601DateTime!
+  districts: [District!]!
+  errors: [ValidationError!]!
+  geojson: JSON
+  "ID of the object."
+  id: ID!
+  name: String!
+  preferences: JSON
+  updatedAt: ISO8601DateTime!
+}
+
+"The connection type for State."
+type StateConnection {
+  "A list of edges."
+  edges: [StateEdge!]!
+  "Metric response for chart / reporting"
+  metrics(dateField: String!, granularity: MetricGranularity!, sumField: String): [MetricResponse!]!
+  "A list of nodes."
+  nodes: [State!]!
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  sum(field: String!): Float!
+  totalCount: Int!
+}
+
+"An edge in a connection."
+type StateEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: State!
+}
+
+type Tax {
+  countryOfTaxResidence: String!
+  createdAt: ISO8601DateTime!
+  id: ID!
+  profile: Profile!
+  taxIdentificationNumber: String!
+  updatedAt: ISO8601DateTime!
+}
+
+type Ticker implements BaseModelInterface & Node {
+  assetType: String
+  avgVolume30d: Int
+  avgVolume7d: Int
+  avgVolume90d: Int
+  "Best Ask Price"
+  bap: Float
+  "Best Bid Price"
+  bbp: Float
+  bloombergSymbol: String
+  calculatedVwap: Float
+  cit: Float
+  citr: Float
+  civ: Float
+  closePrice: Float
+  correctionFactor: Float
+  cot: Float
+  cotr: Float
+  country: String
+  cov: Float
+  createdAt: ISO8601DateTime!
+  currency: String!
+  currencyCorrectionFactor: Int
+  datasourceSymbol: String
+  decimalCorrectionFactor: Int
+  decimalPlaces: Int
+  description: String
+  errors: [ValidationError!]!
+  exchange: String!
+  expiryDate: ISO8601Date
+  fractionalTrading: Boolean!
+  gicsCode: String
+  high52week: Float
+  high52weekDate: ISO8601Date
+  highPrice: Float
+  "ID of the object."
+  id: ID!
+  idBbGlobal: String
+  "Indicates if the ticker is in the user's watchlist"
+  inWatchlist: Boolean!
+  instrumentType: String
+  isDelayed: Boolean!
+  isTradable: Boolean!
+  key: String!
+  lastPrice: Float
+  lastUpdatedAt: ISO8601DateTime
+  longOnly: Boolean!
+  lotSize: Int
+  low52week: Float
+  low52weekDate: ISO8601Date
+  lowPrice: Float
+  ltq: Float
+  marketCap: Float
+  maxPrice: Float
+  micCode: String
+  minPrice: Float
+  minimumQuantity: Float
+  monthChangePct: Float
+  name: String
+  netChange: Float
+  openPrice: Float
+  optionContractSize: Int
+  optionPremium: Float
+  optionType: String
+  optionsAvailability: Int
+  overnightTrading: Boolean!
+  pctChange: Float
+  prevClose: Float
+  providerData: String
+  providerSymbolId: String
+  securityType: String
+  showInWeb: Boolean!
+  stampDutyFlag: Int
+  status: Int
+  strikePrice: Float
+  symbol: String!
+  symbolStatus: Int
+  tickSize: Float
+  tickSizeString: String
+  tickerClassL1: String
+  tickerClassL2: String
+  tickerClassL3: String
+  timeInForceTypes: String
+  top: Float
+  tov: Float
+  tradeTime: ISO8601DateTime
+  tradeVwap: Float
+  transactionDate: ISO8601DateTime
+  turnover: Float
+  updatedAt: ISO8601DateTime!
+  volume: Int
+  vwap: Float
+  weekChangePct: Float
+  yearChangePct: Float
+  ytdChangePct: Float
+}
+
+"The connection type for Ticker."
+type TickerConnection {
+  "A list of edges."
+  edges: [TickerEdge!]!
+  "Metric response for chart / reporting"
+  metrics(dateField: String!, granularity: MetricGranularity!, sumField: String): [MetricResponse!]!
+  "A list of nodes."
+  nodes: [Ticker!]!
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  sum(field: String!): Float!
+  totalCount: Int!
+}
+
+"An edge in a connection."
+type TickerEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: Ticker!
+}
+
+type Transaction implements BaseModelInterface & Node {
+  amount: Float!
+  balance: Float
+  balanceAfter: Float
+  createdAt: ISO8601DateTime!
+  currency: String!
+  description: String!
+  entryType: TransactionEntryType!
+  errors: [ValidationError!]!
+  "ID of the object."
+  id: ID!
+  kind: String!
+  metadata: JSON
+  number: String!
+  ref: Reference!
+  source: Node
+  updatedAt: ISO8601DateTime!
+}
+
+"The connection type for Transaction."
+type TransactionConnection {
+  "A list of edges."
+  edges: [TransactionEdge!]!
+  "Metric response for chart / reporting"
+  metrics(dateField: String!, granularity: MetricGranularity!, sumField: String): [MetricResponse!]!
+  "A list of nodes."
+  nodes: [Transaction!]!
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  sum(field: String!): Float!
+  totalCount: Int!
+}
+
+"An edge in a connection."
+type TransactionEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: Transaction!
+}
+
+type User implements BaseModelInterface & Node {
+  avatar: Image
+  bankAccounts: [BankAccount!]!
+  cards: [Card!]!
+  cashAccounts: [CashAccount!]!
+  confirmed: Boolean!
+  confirmedAt: ISO8601DateTime
+  createdAt: ISO8601DateTime!
+  currentSignInAt: ISO8601DateTime
+  currentSignInIp: String
+  customerToken: String
+  devices: [UserDevice!]!
+  email: Email
+  emails: [UserEmail!]!
+  errors: [ValidationError!]!
+  exchangeAccounts: [ExchangeAccount!]!
+  failedAttempts: Int!
+  fullName: String!
+  gtnAccount: String
+  "ID of the object."
+  id: ID!
+  isMe: Boolean!
+  language: String
+  lastSignInAt: ISO8601DateTime
+  lastSignInIp: String
+  level: String
+  lockedAt: ISO8601DateTime
+  loyaltyWallet: Wallet
+  note: String
+  number: String!
+  orders(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    filter: OrderFilter,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): OrderConnection!
+  passkeys: [Passkey!]!
+  phone: Phone
+  phones: [UserPhone!]!
+  positions: [Position!]!
+  profile: Profile!
+  rememberCreatedAt: ISO8601DateTime
+  roleMatrix: JSON
+  securityAccounts: [SecurityAccount!]!
+  signInCount: Int!
+  status: Status
+  totalPurchaseAmount: Float!
+  twoFactorEnabled: Boolean!
+  updatedAt: ISO8601DateTime!
+  username: String!
+}
+
+"The connection type for User."
+type UserConnection {
+  "A list of edges."
+  edges: [UserEdge!]!
+  "Metric response for chart / reporting"
+  metrics(dateField: String!, granularity: MetricGranularity!, sumField: String): [MetricResponse!]!
+  "A list of nodes."
+  nodes: [User!]!
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  sum(field: String!): Float!
+  totalCount: Int!
+}
+
+type UserDevice implements BaseModelInterface & Node {
+  channel: DeviceChannel
+  confirmed: Boolean
+  confirmedAt: ISO8601DateTime
+  createdAt: ISO8601DateTime!
+  deviceId: String
+  errors: [ValidationError!]!
+  "ID of the object."
+  id: ID!
+  ip: String
+  lastActiveAt: ISO8601DateTime!
+  location: String
+  name: String
+  platform: String!
+  updatedAt: ISO8601DateTime!
+  userId: ID
+}
+
+"An edge in a connection."
+type UserEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: User!
+}
+
+type UserEmail implements BaseModelInterface & Node {
+  confirmed: Boolean!
+  confirmedAt: ISO8601DateTime
+  createdAt: ISO8601DateTime!
+  email: Email!
+  errors: [ValidationError!]!
+  "ID of the object."
+  id: ID!
+  isDefault: Boolean!
+  updatedAt: ISO8601DateTime!
+  userId: ID
+}
+
+type UserPhone implements BaseModelInterface & Node {
+  carrier: String
+  confirmed: Boolean!
+  confirmedAt: ISO8601DateTime
+  countryCode: String!
+  createdAt: ISO8601DateTime!
+  errors: [ValidationError!]!
+  "ID of the object."
+  id: ID!
+  isDefault: Boolean!
+  phone: Phone!
+  updatedAt: ISO8601DateTime!
+  userId: ID
+}
+
+type ValidationError {
+  attribute: String!
+  message: String!
+}
+
+type Wallet implements BaseModelInterface & Node {
+  account: String!
+  balance: Float!
+  createdAt: ISO8601DateTime!
+  currency: String!
+  errors: [ValidationError!]!
+  "ID of the object."
+  id: ID!
+  lastTransactionAt: ISO8601DateTime
+  name: String
+  pendingBalance: Float!
+  preferences: String
+  status: Int!
+  transactions(
+    "Returns the elements in the list that come after the specified cursor."
+    after: String,
+    "Returns the elements in the list that come before the specified cursor."
+    before: String,
+    filter: BankTransactionFilter,
+    "Returns the first _n_ elements from the list."
+    first: Int,
+    "Returns the last _n_ elements from the list."
+    last: Int,
+    "Returns the elements skipping _n_ from the list."
+    offset: Int,
+    "Sorting functionality"
+    sort: SortFilter
+  ): TransactionConnection!
+  type: String!
+  updatedAt: ISO8601DateTime!
+}
+
+type Watchlist implements BaseModelInterface & Node {
+  createdAt: ISO8601DateTime!
+  errors: [ValidationError!]!
+  "ID of the object."
+  id: ID!
+  sort: Int!
+  ticker: Ticker!
+  updatedAt: ISO8601DateTime!
+  userId: Int!
+}
+
+"The connection type for Watchlist."
+type WatchlistConnection {
+  "A list of edges."
+  edges: [WatchlistEdge!]!
+  "Metric response for chart / reporting"
+  metrics(dateField: String!, granularity: MetricGranularity!, sumField: String): [MetricResponse!]!
+  "A list of nodes."
+  nodes: [Watchlist!]!
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  sum(field: String!): Float!
+  totalCount: Int!
+}
+
+"An edge in a connection."
+type WatchlistEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: Watchlist!
+}
+
+"Autogenerated return type of accountDeposit."
+type accountDepositPayload {
+  accountNumber: String!
+  amount: Float!
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+}
+
+"Autogenerated return type of accountWithdraw."
+type accountWithdrawPayload {
+  accountNumber: String!
+  amount: Float!
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+}
+
+"Autogenerated return type of createRelatedParty."
+type createRelatedPartyPayload {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  errors: [ValidationError!]!
+  profile: Profile
+  relatedParty: RelatedParty
+}
+
+"Autogenerated return type of createTax."
+type createTaxPayload {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  errors: [ValidationError!]!
+  profile: Profile
+  tax: Tax
+}
+
+"Autogenerated return type of enableTotp."
+type enableTotpPayload {
+  "Backup codes for the TOTP"
+  backupCodes: [String!]!
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  user: User!
+}
+
+"Autogenerated return type of provideKYCConsent."
+type provideKYCConsentPayload {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  consent: Consent
+  errors: [ValidationError!]!
+  profile: Profile
+}
+
+"Autogenerated return type of requestTotp."
+type requestTotpPayload {
+  "The account name associated with the TOTP token"
+  accountName: String!
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  "The issuer of the TOTP token"
+  issuer: String!
+  "The provisioning URI for the TOTP token"
+  provisioningUri: String!
+  "The TOTP secret key used for generating tokens"
+  secret: String!
+}
+
+enum BankCGWStatus {
+  "active"
+  active
+  "failed"
+  failed
+  "inactive"
+  inactive
+  "out_of_balance"
+  out_of_balance
+}
+
+enum BankTransferStatus {
+  "failed"
+  failed
+  "pending"
+  pending
+  "sending"
+  sending
+  "sent"
+  sent
+}
+
+enum DeviceChannel {
+  "email"
+  email
+  "phone"
+  phone
+  "viber"
+  viber
+}
+
+enum Gender {
+  "female"
+  female
+  "male"
+  male
+  "undefined"
+  undefined
+}
+
+enum MetricGranularity {
+  "DAY"
+  day
+  "HOUR"
+  hour
+  "MONTH"
+  month
+  "WEEK"
+  week
+  "YEAR"
+  year
+}
+
+enum OrderSide {
+  "buy"
+  buy
+  "sell"
+  sell
+}
+
+enum OrderTypeEnum {
+  "limit"
+  limit
+  "limit_on_close"
+  limit_on_close
+  "market"
+  market
+  "market_on_close"
+  market_on_close
+  "stop"
+  stop
+  "stop_limit"
+  stop_limit
+  "trailing_stop"
+  trailing_stop
+}
+
+"Sort Direction"
+enum SortDirection {
+  "Ascending"
+  asc
+  "Descending"
+  desc
+}
+
+enum Status {
+  "active"
+  active
+  "banned"
+  banned
+  "deleted"
+  deleted
+  "inactive"
+  inactive
+  "pending"
+  pending
+  "suspended"
+  suspended
+}
+
+enum TifEnum {
+  "at_close"
+  at_close
+  "at_opening"
+  at_opening
+  "day"
+  day
+  "fok"
+  fok
+  "good_till_cancel"
+  good_till_cancel
+  "good_till_crossing"
+  good_till_crossing
+  "good_till_date"
+  good_till_date
+  "ioc"
+  ioc
+  "month"
+  month
+  "session"
+  session
+}
+
+enum TopTicker {
+  "Most active by value"
+  active_by_value
+  "Most active by volume"
+  active_by_volume
+  "Top gainers"
+  gainers
+  "Top losers"
+  losers
+}
+
+enum TransactionEntryType {
+  "credit"
+  credit
+  "debit"
+  debit
+}
+
+enum bankTransactionTypeCode {
+  "credit"
+  credit
+  "debit"
+  debit
+}
+
+"Email address that accepts a valid email format"
+scalar Email
+
+"An ISO 8601-encoded date"
+scalar ISO8601Date
+
+"An ISO 8601-encoded datetime"
+scalar ISO8601DateTime
+
+"Represents untyped JSON"
+scalar JSON
+
+"Phone number that accepts a valid phone format"
+scalar Phone
+
+"Mongolian register number that accepts a valid format"
+scalar RegisterNumber
+
+scalar Upload
+
+input AccountFilter {
+  commissionType: IntFilter
+  createdAt: DateFilter
+  custodian: BoolFilter
+  exchange: StringFilter
+  exchangeAccountId: StringFilter
+  exchangeAccountType: IntFilter
+  feedLevel: IntFilter
+  id: IDFilter
+  isPriceEnabled: BoolFilter
+  securityAccount: SecurityAccountFilter
+  securityAccountId: IDFilter
+  status: IntFilter
+  tradingEnabled: BoolFilter
+  updatedAt: DateFilter
+  user: UserFilter
+  userId: IDFilter
+}
+
+input AddressInput {
+  address: String
+  apartment: String
+  city: String
+  company: String
+  countryId: ID
+  districtId: ID
+  districtName: String
+  firstName: String
+  "ID"
+  id: ID
+  instructions: String
+  lastName: String
+  latitude: String
+  longitude: String
+  phone: Phone
+  postalCode: String
+  quarterId: ID
+  quarterName: String
+  stateId: ID
+  street: String
+  village: String
+  what3words: String
+  zipCode: String
+}
+
+input ArticleFilter {
+  caption: StringFilter
+  category: StringFilter
+  countryList: StringFilter
+  createdAt: DateFilter
+  headline: StringFilter
+  id: IDFilter
+  key: StringFilter
+  language: StringFilter
+  sourceText: StringFilter
+  summary: StringFilter
+  updatedAt: DateFilter
+  withCategory: String
+  withExchange: String
+  withSymbol: String
+}
+
+input BankAccountFilter {
+  bank: BankFilter
+  bankId: IDFilter
+  createdAt: DateFilter
+  currency: StringFilter
+  id: IDFilter
+  isActive: BoolFilter
+  isDefault: BoolFilter
+  name: StringFilter
+  number: StringFilter
+  ownerId: IDFilter
+  ownerType: StringFilter
+  position: IntFilter
+  updatedAt: DateFilter
+  user: UserFilter
+}
+
+input BankFilter {
+  code: StringFilter
+  createdAt: DateFilter
+  id: IDFilter
+  isActive: BoolFilter
+  name: StringFilter
+  swiftCode: StringFilter
+  updatedAt: DateFilter
+}
+
+input BankTransactionFilter {
+  account: StringFilter
+  amount: IntFilter
+  createdAt: DateFilter
+  customDescription: StringFilter
+  customerAccount: StringFilter
+  customerBank: StringFilter
+  customerName: StringFilter
+  description: StringFilter
+  id: IDFilter
+  ref: StringFilter
+  targetId: IntFilter
+  targetType: StringFilter
+  transactionDate: DateFilter
+  typeCode: EnumStringFilter
+  updatedAt: DateFilter
+}
+
+input BankTransferFilter {
+  accountName: StringFilter
+  accountNumber: StringFilter
+  amount: IntFilter
+  bankCode: StringFilter
+  cgwId: IDFilter
+  createdAt: DateFilter
+  currency: StringFilter
+  description: StringFilter
+  id: IDFilter
+  number: StringFilter
+  status: EnumStringFilter
+  targetId: IDFilter
+  targetType: StringFilter
+  updatedAt: DateFilter
+}
+
+input BoolFilter {
+  "equals to"
+  eq: Boolean
+  "not equals to"
+  notEq: Boolean
+  "is null ?"
+  notNull: Boolean
+  "is null ?"
+  null: Boolean
+}
+
+input CashAccountFilter {
+  accountType: IntFilter
+  balance: IntFilter
+  blockedAmount: IntFilter
+  buyingPower: IntFilter
+  cashAvailableForWithdraw: IntFilter
+  createdAt: DateFilter
+  currency: StringFilter
+  dailyOdLimit: IntFilter
+  dailyOdLimitEnabled: BoolFilter
+  dayMarginBlock: IntFilter
+  dayMarginDue: IntFilter
+  id: IDFilter
+  marginBlock: IntFilter
+  marginDue: IntFilter
+  number: StringFilter
+  odLimit: IntFilter
+  pendingDeposit: IntFilter
+  pendingSettle: IntFilter
+  pendingWithdraw: IntFilter
+  secondaryTradingLimit: IntFilter
+  status: IntFilter
+  unsettledTransfers: IntFilter
+  updatedAt: DateFilter
+  user: UserFilter
+  userId: IDFilter
+}
+
+input CountryFilter {
+  createdAt: DateFilter
+  id: IDFilter
+  isoName: StringFilter
+  name: StringFilter
+  updatedAt: DateFilter
+}
+
+input DateFilter {
+  "equals to"
+  eq: String
+  "Greater than"
+  gt: String
+  "Greater than or equals"
+  gteq: String
+  "Less than"
+  lt: String
+  "Less than or equals"
+  lteq: String
+  "not equals to"
+  notEq: String
+  "is null ?"
+  notNull: Boolean
+  "is null ?"
+  null: Boolean
+}
+
+input DistrictFilter {
+  code: StringFilter
+  createdAt: DateFilter
+  id: IDFilter
+  name: StringFilter
+  stateId: IDFilter
+  updatedAt: DateFilter
+}
+
+input EnumStringFilter {
+  "equals to"
+  eq: String
+  "in: Matches any values in giver array"
+  in: [String!]
+  "not equals to"
+  notEq: String
+  "in: Matches none of values in giver array"
+  notIn: [String!]
+  "is null ?"
+  notNull: Boolean
+  "is null ?"
+  null: Boolean
+}
+
+input IDFilter {
+  "is null ?"
+  blank: Boolean
+  "equals to"
+  eq: ID
+  "Greater than"
+  gt: Int
+  "Greater than or equals"
+  gteq: Int
+  "in: Matches any values in giver array"
+  in: [ID!]
+  "Less than"
+  lt: Int
+  "Less than or equals"
+  lteq: Int
+  "not equals to"
+  notEq: ID
+  "in: Matches none of values in giver array"
+  notIn: [ID!]
+  "Starts with"
+  start: Int
+}
+
+input IntFilter {
+  "is blank ?"
+  blank: Boolean
+  "equals to"
+  eq: Float
+  "Greater than"
+  gt: Float
+  "Greater than or equals"
+  gteq: Float
+  "in: Matches none of values in giver array"
+  in: [Float!]
+  "Less than"
+  lt: Float
+  "Less than or equals"
+  lteq: Float
+  "not equals to"
+  notEq: Float
+  "in: Matches none of values in giver array"
+  notIn: [Float!]
+  "is null ?"
+  null: Boolean
+}
+
+input JobStatusFilter {
+  createdAt: DateFilter
+  id: IDFilter
+  jobId: StringFilter
+  jobType: StringFilter
+  status: StringFilter
+  updatedAt: DateFilter
+  userId: IDFilter
+}
+
+input OrderFilter {
+  createdAt: DateFilter
+  filledQty: IntFilter
+  id: IDFilter
+  number: StringFilter
+  orderQty: IntFilter
+  orderSide: EnumStringFilter
+  orderStatus: EnumStringFilter
+  orderType: EnumStringFilter
+  symbol: StringFilter
+  tif: EnumStringFilter
+  updatedAt: DateFilter
+  userId: IDFilter
+}
+
+"Autogenerated input type of PlaceEquity"
+input PlaceEquityInput {
+  accountNumber: String
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  currency: String = "USD"
+  exchange: String!
+  expiryDate: ISO8601DateTime
+  instrumentType: String
+  orderQty: Float!
+  orderSide: OrderSide!
+  orderType: OrderTypeEnum!
+  orderValue: Float
+  price: Float
+  securityType: String = "CS"
+  stopPrice: Float
+  symbol: String!
+  tif: TifEnum
+  tradingSession: String = "REG"
+  trailByValue: Float
+  trailType: String
+}
+
+input QuarterFilter {
+  code: StringFilter
+  createdAt: DateFilter
+  districtId: IDFilter
+  id: IDFilter
+  name: StringFilter
+  updatedAt: DateFilter
+}
+
+input SecurityAccountFilter {
+  accountType: IntFilter
+  cashAccount: CashAccountFilter
+  cashAccountId: IDFilter
+  createdAt: DateFilter
+  currency: StringFilter
+  id: IDFilter
+  name: StringFilter
+  number: StringFilter
+  secApprovalStatus: IntFilter
+  securityAccountType: IntFilter
+  status: IntFilter
+  updatedAt: DateFilter
+  user: UserFilter
+  userId: IDFilter
+}
+
+input SortFilter {
+  direction: SortDirection
+  field: String!
+}
+
+input StateFilter {
+  code: StringFilter
+  country: CountryFilter
+  countryId: IDFilter
+  createdAt: DateFilter
+  id: IDFilter
+  name: StringFilter
+  updatedAt: DateFilter
+}
+
+input StringFilter {
+  "is blank ?"
+  blank: Boolean
+  "contains"
+  cont: String
+  "ends with"
+  end: String
+  "equals to"
+  eq: String
+  "in: Matches any values in giver array"
+  in: [String!]
+  "not equals to"
+  notEq: String
+  "in: Matches none of values in giver array"
+  notIn: [String!]
+  "is null ?"
+  notNull: Boolean
+  "is null ?"
+  null: Boolean
+  "starts with"
+  start: String
+}
+
+input TickerFilter {
+  createdAt: DateFilter
+  exchange: StringFilter
+  high52week: IntFilter
+  id: IDFilter
+  key: StringFilter
+  lastPrice: IntFilter
+  low52week: IntFilter
+  name: StringFilter
+  symbol: StringFilter
+  symbolOrName: StringFilter
+  updatedAt: DateFilter
+  volume: IntFilter
+}
+
+input UserFilter {
+  citizenIdNumber: StringFilter
+  civilId: StringFilter
+  confirmed: BoolFilter
+  confirmedAt: DateFilter
+  createdAt: DateFilter
+  email: StringFilter
+  firstName: StringFilter
+  fullName: StringFilter
+  gender: EnumStringFilter
+  id: IDFilter
+  isCompany: BoolFilter
+  isSpecial: BoolFilter
+  lastName: StringFilter
+  number: StringFilter
+  phone: StringFilter
+  status: EnumStringFilter
+  updatedAt: DateFilter
+  username: StringFilter
+}
+
+input WatchlistFilter {
+  createdAt: DateFilter
+  id: IDFilter
+  ticker: TickerFilter
+  updatedAt: DateFilter
+}
+
+"Autogenerated input type of accountDeposit"
+input accountDepositInput {
+  accountNumber: String!
+  amount: Float!
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  currency: String
+}
+
+"Autogenerated input type of accountWithdraw"
+input accountWithdrawInput {
+  accountNumber: String!
+  amount: Float!
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  currency: String
+}
+
+"Autogenerated input type of assertionPasskey"
+input assertionPasskeyInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  "Username of the user requesting a passkey validation"
+  username: String
+}
+
+"Autogenerated input type of bankCGWCreate"
+input bankCGWCreateInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  isCredit: Boolean
+  minBalance: Float
+  name: String!
+  preferences: JSON
+  status: BankCGWStatus
+  transferAccount: String!
+  transferPassword: String!
+  transferUsername: String!
+  type: String!
+}
+
+"Autogenerated input type of bankCGWStatements"
+input bankCGWStatementsInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  id: ID!
+  params: JSON
+}
+
+"Autogenerated input type of bankCGWUpdate"
+input bankCGWUpdateInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  id: ID!
+  isCredit: Boolean
+  minBalance: Float
+  name: String
+  preferences: JSON
+  status: BankCGWStatus
+  transferAccount: String
+  transferPassword: String
+  transferUsername: String
+  type: String
+}
+
+"Autogenerated input type of cancelOrder"
+input cancelOrderInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  id: ID!
+}
+
+"Autogenerated input type of changePassword"
+input changePasswordInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  currentPassword: String!
+  id: ID
+  password: String!
+  passwordConfirmation: String!
+}
+
+"Autogenerated input type of checkAccountName"
+input checkAccountNameInput {
+  accountNumber: String!
+  bankCode: String
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  ownerType: String
+}
+
+"Autogenerated input type of confirmableConfirm"
+input confirmableConfirmInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  id: ID!
+  token: String!
+}
+
+"Autogenerated input type of confirmableResend"
+input confirmableResendInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  id: ID!
+}
+
+"Autogenerated input type of createAddress"
+input createAddressInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  detail: AddressInput!
+}
+
+"Autogenerated input type of createBankAccount"
+input createBankAccountInput {
+  "ID of the bank to which the account belongs"
+  bankId: ID!
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  currency: String
+  isActive: Boolean
+  isDefault: Boolean
+  name: String!
+  number: String!
+  "ID of the owner of the bank account. If not provided, the current user will be used."
+  ownerId: ID
+  position: Int
+}
+
+"Autogenerated input type of createBank"
+input createBankInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  code: String!
+  icon: Upload
+  isActive: Boolean
+  name: String!
+  preferences: JSON
+  swiftCode: String
+}
+
+"Autogenerated input type of createKYCFinancial"
+input createKYCFinancialInput {
+  annualIncomeBracket: String!
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  expectedTradingVolume: String!
+  investmentExperience: String!
+  investmentObjective: String!
+  liquidAssets: String
+  netWorthBracket: String!
+  primaryIncomeSource: String!
+  riskTolerance: String!
+}
+
+"Autogenerated input type of createNote"
+input createNoteInput {
+  body: String!
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  metadata: JSON
+  subjectId: ID!
+}
+
+"Autogenerated input type of createPasskey"
+input createPasskeyInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  credential: JSON!
+  label: String
+}
+
+"Autogenerated input type of createRelatedParty"
+input createRelatedPartyInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  country: String!
+  documentUrl: String
+  name: String!
+  relationType: String!
+}
+
+"Autogenerated input type of createSignedId"
+input createSignedIdInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  expiresIn: Int = 300
+  id: ID
+  purpose: String!
+}
+
+"Autogenerated input type of createTax"
+input createTaxInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  countryOfTaxResidence: String!
+  taxIdentificationNumber: String!
+}
+
+"Autogenerated input type of deleteAddress"
+input deleteAddressInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  id: ID!
+}
+
+"Autogenerated input type of deleteBankAccount"
+input deleteBankAccountInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  id: ID!
+}
+
+"Autogenerated input type of deleteDevice"
+input deleteDeviceInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  id: ID!
+}
+
+"Autogenerated input type of deleteEmail"
+input deleteEmailInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  id: ID!
+}
+
+"Autogenerated input type of deleteNote"
+input deleteNoteInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  id: ID!
+}
+
+"Autogenerated input type of deletePasskey"
+input deletePasskeyInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  id: ID!
+}
+
+"Autogenerated input type of deletePhone"
+input deletePhoneInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  id: ID!
+}
+
+"Autogenerated input type of deleteUser"
+input deleteUserInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  "ID of user to delete. If not provided, deletes current user"
+  id: ID
+  "Password required when deleting other users"
+  password: String
+}
+
+"Autogenerated input type of disableTotp"
+input disableTotpInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  "The TOTP token to verify before disabling"
+  token: String!
+}
+
+"Autogenerated input type of enableTotp"
+input enableTotpInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  "The TOTP token to verify and enable"
+  token: String!
+}
+
+"Autogenerated input type of forgetPassword"
+input forgetPasswordInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  "User identifier (email or phone number)"
+  identity: String!
+}
+
+"Autogenerated input type of provideKYCConsent"
+input provideKYCConsentInput {
+  accepted: Boolean!
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  consentType: String!
+  ipAddress: String
+  signatureUrl: String
+  userAgent: String
+}
+
+"Autogenerated input type of registerByEmail"
+input registerByEmailInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  email: Email
+  id: ID
+}
+
+"Autogenerated input type of registerByMobile"
+input registerByMobileInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  id: ID
+  phone: Phone
+}
+
+"Autogenerated input type of registerByPassword"
+input registerByPasswordInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  emailSid: ID
+  locale: String
+  password: String!
+  passwordConfirmation: String!
+  phoneSid: ID!
+}
+
+"Autogenerated input type of removeFromWatchList"
+input removeFromWatchListInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  id: ID!
+}
+
+"Autogenerated input type of requestPasskey"
+input requestPasskeyInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+}
+
+"Autogenerated input type of requestTotp"
+input requestTotpInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+}
+
+"Autogenerated input type of resetPassword"
+input resetPasswordInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  confirmationId: ID!
+  password: String!
+  passwordConfirmation: String!
+}
+
+"Autogenerated input type of toggleWatchList"
+input toggleWatchListInput {
+  add: Boolean
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  key: String!
+}
+
+"Autogenerated input type of updateAddress"
+input updateAddressInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  detail: AddressInput!
+  id: ID!
+}
+
+"Autogenerated input type of updateBankAccount"
+input updateBankAccountInput {
+  bankId: ID
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  currency: String
+  id: ID!
+  isActive: Boolean
+  isDefault: Boolean
+  name: String
+  number: String
+  ownerId: ID
+  ownerType: String
+  position: Int
+  preferences: JSON
+}
+
+"Autogenerated input type of updateBank"
+input updateBankInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  code: String
+  icon: Upload
+  id: ID!
+  isActive: Boolean
+  name: String
+  preferences: JSON
+  swiftCode: String
+}
+
+"Autogenerated input type of updateDevice"
+input updateDeviceInput {
+  active: Boolean = true
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  deviceId: ID!
+  id: ID
+  pin: String
+  pushToken: JSON
+}
+
+"Autogenerated input type of updateKYCProfile"
+input updateKYCProfileInput {
+  address: AddressInput
+  birthday: ISO8601Date
+  citizenIdNumber: RegisterNumber
+  citizenshipId: ID
+  civilId: String
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  drivingLicense: String
+  familyName: String
+  firstName: String
+  gender: String
+  lastName: String
+  middleName: String
+  nationalityId: ID
+  passportNumber: String
+}
+
+"Autogenerated input type of updateNote"
+input updateNoteInput {
+  body: String!
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  id: ID!
+}
+
+"Autogenerated input type of updatePasskey"
+input updatePasskeyInput {
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  id: ID!
+  isActive: Boolean
+  label: String
+}
+
+"Autogenerated input type of updateUser"
+input updateUserInput {
+  auditComment: String
+  avatar: Upload
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  email: Email
+  id: ID
+  language: String
+  level: String
+  note: String
+  phone: Phone
+  status: Int
+  username: String
+}
+
+"Autogenerated input type of uploadKYCDocument"
+input uploadKYCDocumentInput {
+  "The back side of the document image (if applicable)."
+  backFile: Upload
+  "A unique identifier for the client performing the mutation."
+  clientMutationId: String
+  documentNumber: String
+  documentType: String!
+  expiryDate: ISO8601Date
+  "The front side of the document image."
+  frontFile: Upload!
+  issueDate: ISO8601Date
+  issuingCountry: String
+}

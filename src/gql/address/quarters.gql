@@ -1,0 +1,9 @@
+query quarters($first: Int, $after: String, $filter: QuarterFilter, $sort: SortFilter) {
+  quarters(first: $first, after: $after, filter: $filter, sort: $sort) {
+    nodes {
+      id
+      name
+      code
+    }
+  }
+}

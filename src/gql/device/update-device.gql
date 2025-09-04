@@ -1,0 +1,7 @@
+mutation updateDevice($id: ID!, $active: Boolean, $pin: String, $pushToken: JSON) {
+  updateDevice(input: { deviceId: $id, active: $active, pin: $pin, pushToken: $pushToken }) {
+    id
+    name
+    createdAt
+  }
+}

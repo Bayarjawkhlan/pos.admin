@@ -1,0 +1,46 @@
+query userAccounts($id: ID!) {
+  node(id: $id) {
+    ... on User {
+      id
+      cashAccounts {
+        id
+        number
+        name
+        balance
+        currency
+        status
+        accountType
+        buyingPower
+        blockedAmount
+        cashAvailableForWithdraw
+        pendingDeposit
+        pendingWithdraw
+        pendingSettle
+        createdAt
+      }
+      exchangeAccounts {
+        id
+        exchangeAccountId
+        exchange
+        exchangeAccountType
+        status
+        custodian
+        securityAccountId
+        isPriceEnabled
+        tradingEnabled
+        createdAt
+      }
+      securityAccounts {
+        id
+        number
+        name
+        currency
+        status
+        accountType
+        secApprovalStatus
+        cashAccountId
+        createdAt
+      }
+    }
+  }
+}
