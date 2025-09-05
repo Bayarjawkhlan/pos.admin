@@ -96,7 +96,7 @@ export default tseslint.config(
       'no-unused-vars': 'off', // or "@typescript-eslint/no-unused-vars": "off",
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
-        'warn',
+        'off',
         {
           vars: 'all',
           varsIgnorePattern: '^_',

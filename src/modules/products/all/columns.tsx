@@ -1,26 +1,65 @@
 import { format } from 'date-fns'
 import { i18n } from '@lingui/core'
-import { Barcode, DollarSign, Factory, Globe2, Search } from 'lucide-react'
-import { toast } from 'sonner'
-import { formatMoney } from '@/lib/utils'
+import { Barcode, Check, DollarSign, Factory, Globe2, Search } from 'lucide-react'
+import COUNTRIES from '@/lib/constants/countries.json'
+import { cn, formatMoney } from '@/lib/utils'
 import { ColumnHeader } from '@/components/table/components/column-header'
-import COUNTRIES from './countries.json'
-import { useProductsStore } from './store'
+import { TableKey } from '@/components/table/types'
 import { ProductColumn } from './types'
 
-export const useProductsColumns = (): ProductColumn[] => {
-  const { setSelectedProduct, setSorts, sorts } = useProductsStore()
+export const useProductsColumns = (
+  tableKey: TableKey,
+  selectedRowIds: number[],
+  setSelectedRowIds: (rowId: number) => void,
+  selectAll: () => void
+): ProductColumn[] => {
+  const handleSelectAll = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation()
+    console.log(selectedRowIds?.length)
+    selectAll()
+  }
+
+  const handleSelectRow = (rowId: number) => {
+    console.log(rowId, selectedRowIds)
+    setSelectedRowIds(rowId)
+  }
 
   return [
     {
+      id: 'id',
+      headerName: i18n.t('ID'),
+      header: (
+        <button
+          className={cn(
+            'flex size-4 items-center justify-center rounded-[2px] border',
+            selectedRowIds?.length === selectedRowIds?.length && 'bg-primary text-white'
+          )}
+          onClick={handleSelectAll}
+        >
+          {selectedRowIds?.length === selectedRowIds?.length && <Check className='size-3.5' />}
+        </button>
+      ),
+      cell: (row) => (
+        <button
+          className='size-4 rounded border'
+          onClick={(event) => {
+            event.stopPropagation()
+            handleSelectRow(row.id)
+          }}
+        >
+          {selectedRowIds?.includes(row.id) && <Check onClick={(e) => e.stopPropagation()} className='size-3.5 text-black' />}
+        </button>
+      )
+    },
+    {
       id: 'name',
       headerName: i18n.t('Нэр'),
-      header: <ColumnHeader title={i18n.t('Нэр')} id='name' sorts={sorts} setSorts={setSorts} sortable />,
+      header: <ColumnHeader title={i18n.t('Нэр')} id='name' sortable tableKey={tableKey} />,
       cell: (row) => (
-        <button className='flex items-center gap-x-3' onClick={() => setSelectedProduct(row)}>
+        <div className='flex items-center gap-x-3'>
           <img src={row.imageUrl || ''} alt={row.name} className='size-12 min-w-12 rounded-md object-cover object-center' />
           <p className='text-left text-sm'>{row.name}</p>
-        </button>
+        </div>
       ),
       filterable: true,
       meta: {
@@ -33,9 +72,7 @@ export const useProductsColumns = (): ProductColumn[] => {
     {
       id: 'internationalName',
       headerName: i18n.t('Олон улсын нэршил'),
-      header: (
-        <ColumnHeader title={i18n.t('Олон улсын нэршил')} id='internationalName' sorts={sorts} setSorts={setSorts} sortable />
-      ),
+      header: <ColumnHeader title={i18n.t('Олон улсын нэршил')} id='internationalName' sortable tableKey={tableKey} />,
       cell: (row) => <p className='text-muted-foreground text-sm'>{row.internationalName || '-'}</p>,
       filterable: true,
       meta: {
@@ -47,18 +84,8 @@ export const useProductsColumns = (): ProductColumn[] => {
     {
       id: 'barcode',
       headerName: i18n.t('Баркод'),
-      header: <ColumnHeader title={i18n.t('Баркод')} id='barcode' sorts={sorts} setSorts={setSorts} sortable />,
-      cell: (row) => (
-        <button
-          className='text-muted-foreground text-sm'
-          onClick={() => {
-            navigator.clipboard.writeText(row.barcode)
-            toast.success(i18n.t('Баркод амжилттай хуулгаачлагдлаа'))
-          }}
-        >
-          {row.barcode}
-        </button>
-      ),
+      header: <ColumnHeader title={i18n.t('Баркод')} id='barcode' sortable tableKey={tableKey} />,
+      cell: (row) => <p className='text-muted-foreground text-sm'>{row.barcode || '-'}</p>,
       filterable: true,
       meta: {
         variant: 'text',
@@ -69,7 +96,7 @@ export const useProductsColumns = (): ProductColumn[] => {
     {
       id: 'productType',
       headerName: i18n.t('Эмийн хэлбэр'),
-      header: <ColumnHeader title={i18n.t('Эмийн хэлбэр')} />,
+      header: <ColumnHeader title={i18n.t('Эмийн хэлбэр')} tableKey={tableKey} />,
       cell: (row) => <p className='text-muted-foreground text-sm'>{row.productType}</p>,
       filterable: true,
       meta: {
@@ -84,7 +111,7 @@ export const useProductsColumns = (): ProductColumn[] => {
     {
       id: 'manifacturer',
       headerName: i18n.t('Үйлдвэрлэгч'),
-      header: <ColumnHeader title={i18n.t('Үйлдвэрлэгч')} id='manifacturer' sorts={sorts} setSorts={setSorts} sortable />,
+      header: <ColumnHeader title={i18n.t('Үйлдвэрлэгч')} id='manifacturer' sortable tableKey={tableKey} />,
       cell: (row) => <p className='text-muted-foreground text-sm'>{row.manifacturer}</p>,
       filterable: true,
       meta: {
@@ -96,7 +123,7 @@ export const useProductsColumns = (): ProductColumn[] => {
     {
       id: 'country',
       headerName: i18n.t('Улс'),
-      header: <ColumnHeader title={i18n.t('Улс')} id='country' sorts={sorts} setSorts={setSorts} sortable />,
+      header: <ColumnHeader title={i18n.t('Улс')} id='country' sortable tableKey={tableKey} />,
       cell: (row) => <p className='text-muted-foreground text-sm'>{row.country}</p>,
       filterable: true,
       meta: {
@@ -108,25 +135,23 @@ export const useProductsColumns = (): ProductColumn[] => {
     {
       id: 'price',
       headerName: i18n.t('Нэгж үнэ'),
-      header: <ColumnHeader title={i18n.t('Нэгж үнэ')} id='price' sorts={sorts} setSorts={setSorts} sortable />,
+      header: <ColumnHeader title={i18n.t('Нэгж үнэ')} id='price' sortable tableKey={tableKey} />,
       cell: (row) => <p className='text-muted-foreground text-sm'>{formatMoney(row.price, { currency: 'MNT' })}</p>,
       filterable: true,
       meta: {
         variant: 'number',
         placeholder: i18n.t('1000'),
-        icon: DollarSign,
-        thousandSeparator: true,
-        suffix: i18n.t('₮')
+        icon: DollarSign
       }
     },
     {
       id: 'createdAt',
       headerName: i18n.t('Үүсгэсэн огноо'),
-      header: <ColumnHeader title={i18n.t('Үүсгэсэн огноо')} id='createdAt' sorts={sorts} setSorts={setSorts} sortable />,
+      header: <ColumnHeader title={i18n.t('Үүсгэсэн огноо')} id='createdAt' sortable tableKey={tableKey} />,
       cell: (row) => <p className='text-muted-foreground text-sm'>{format(row.createdAt, 'dd/MM/yyyy')}</p>,
       filterable: true,
       meta: {
-        variant: 'date',
+        variant: 'date-range',
         placeholder: i18n.t('Огноо')
       }
     }

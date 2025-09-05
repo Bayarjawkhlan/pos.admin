@@ -1,54 +1,32 @@
 import { i18n } from '@lingui/core'
-import { File, Pill, Plus, ShoppingBag } from 'lucide-react'
+import { Download, Plus } from 'lucide-react'
 import { exportTableToCSV } from '@/lib/export'
-import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { ColumnFilter } from '@/components/table/components/column-filter'
-import { useProductsStore } from '../store'
+import { useTablesStore } from '@/components/table/store'
+import { ColumnDef, TableKey } from '@/components/table/types'
+import { Product, ProductColumnId } from '../types'
 import { ProductFormModal } from './product-form-modal'
 
 type ProductsTableHeaderProps = {
+  tableKey: TableKey
   csvData: any[]
+  selectedRowIds?: number
+  totalRows?: number
 }
 
-export const ProductsTableHeader = ({ csvData }: ProductsTableHeaderProps) => {
-  const { filters, setFilters, columns, defaultColumns, addColumn, removeColumn } = useProductsStore()
+export const ProductsTableHeader = ({ csvData, tableKey, selectedRowIds = 0, totalRows = 0 }: ProductsTableHeaderProps) => {
+  const { tables } = useTablesStore()
+
+  const { columns } = tables?.[tableKey as TableKey] || {}
 
   return (
     <div className='flex items-center justify-between border-b px-3 py-2'>
-      <div className='flex items-center gap-x-1'>
-        <Button
-          variant='outline'
-          onClick={() => setFilters('productType', 'medicine')}
-          className={cn(
-            filters?.some((filter) => filter.id === 'productType' && filter.value === 'medicine') &&
-              'bg-primary/10 hover:bg-primary/5 text-primary hover:text-primary border-primary/50'
-          )}
-        >
-          <Pill />{' '}
-          {filters?.some((filter) => filter.id === 'productType' && filter.value === 'medicine') && <span>{i18n.t('Эм')}</span>}
-        </Button>
-        <Button
-          variant='outline'
-          onClick={() => setFilters('productType', 'not-medicine')}
-          className={cn(
-            filters?.some((filter) => filter.id === 'productType' && filter.value === 'not-medicine') &&
-              'bg-primary/10 hover:bg-primary/5 text-primary hover:text-primary border-primary/50'
-          )}
-        >
-          <ShoppingBag />{' '}
-          {filters?.some((filter) => filter.id === 'productType' && filter.value === 'not-medicine') && (
-            <span>{i18n.t('Эм бус')}</span>
-          )}
-        </Button>
-      </div>
-
+      <p className='text-sm'>
+        {selectedRowIds} {i18n.t('Бараа сонгогдлоо')} / {i18n.t('Нийт')} {totalRows}
+      </p>
       <div className='flex items-center gap-x-2'>
-        <Button variant='outline' onClick={() => exportTableToCSV(columns, csvData, { filename: 'products' })}>
-          <File />
-          <span>{i18n.t('Excel-р татах')}</span>
-        </Button>
         {/* Add new Product sheet */}
         <Sheet>
           <SheetTrigger asChild>
@@ -61,7 +39,14 @@ export const ProductsTableHeader = ({ csvData }: ProductsTableHeaderProps) => {
             <ProductFormModal />
           </SheetContent>
         </Sheet>
-        <ColumnFilter columns={columns} addColumn={addColumn} removeColumn={removeColumn} defaultColumns={defaultColumns} />
+        <Button
+          variant='outline'
+          size='icon'
+          onClick={() => exportTableToCSV(columns as ColumnDef<Product, ProductColumnId>[], csvData, { filename: tableKey })}
+        >
+          <Download />
+        </Button>
+        <ColumnFilter tableKey={tableKey} />
       </div>
     </div>
   )

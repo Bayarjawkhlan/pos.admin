@@ -1,35 +1,33 @@
+import { useMemo } from 'react'
 import { Select } from '@radix-ui/react-select'
 import { cn } from '@/lib/utils'
 import { SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { PER_PAGE_OPTIONS } from '../config'
+import { useTablesStore } from '../store'
+import { TableKey } from '../types'
 import { PaginationBar } from './pagination-bar'
 
 type DataTablePaginationProps = {
-  setPage?: (page: number) => void
-  setPerPage?: (perPage: number) => void
-  totalPage?: number
-  page?: number
-  perPage?: number
+  tableKey: TableKey
   tableFooterClassName?: string
   selectTriggerClassName?: string
   paginationBarClassName?: string
 }
 
 export const DataTablePagination = ({
-  setPage,
-  setPerPage,
-  totalPage,
-  page,
-  perPage,
+  tableKey,
   tableFooterClassName,
   selectTriggerClassName,
   paginationBarClassName
 }: DataTablePaginationProps) => {
-  if (!setPage || !setPerPage || !totalPage || !page || !perPage) return null
+  const { tables, setPerPage } = useTablesStore()
+  const { perPage, totalPage } = useMemo(() => tables?.[tableKey as TableKey], [tableKey, tables])
+
+  if (!perPage || !totalPage) return null
 
   return (
     <div className={cn('mt-4 flex h-12 flex-1 items-center justify-between px-5', tableFooterClassName)}>
-      <Select value={perPage.toString()} onValueChange={(value) => setPerPage(Number(value))}>
+      <Select value={perPage.toString()} onValueChange={(value) => setPerPage(tableKey, Number(value))}>
         <SelectTrigger className={cn('h-12', selectTriggerClassName)}>
           <SelectValue />
         </SelectTrigger>
@@ -42,7 +40,7 @@ export const DataTablePagination = ({
         </SelectContent>
       </Select>
       <div className={cn('flex h-14 items-center justify-center px-5', paginationBarClassName)}>
-        <PaginationBar currentPage={page} totalPages={totalPage} onPageChange={setPage} />
+        <PaginationBar tableKey={tableKey} />
       </div>
     </div>
   )

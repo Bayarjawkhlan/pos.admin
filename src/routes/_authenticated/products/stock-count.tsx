@@ -1,53 +1,50 @@
-import { useEffect, useMemo } from 'react'
-import { format } from 'date-fns'
+// import { useEffect, useMemo } from 'react'
+// import { format } from 'date-fns'
 import { createFileRoute } from '@tanstack/react-router'
-import { useProductsColumns } from '@/modules/products/stock-count/columns'
-import { StockCountTableHeader } from '@/modules/products/stock-count/components/stock-count-table-header'
-import { PRODUCTS } from '@/modules/products/stock-count/constants'
-import { useStockCountsStore } from '@/modules/products/stock-count/store'
-import { StockCountProduct } from '@/modules/products/stock-count/types'
+// import { useProductsColumns } from '@/modules/products/stock-count/columns'
+// import { PRODUCTS } from '@/modules/products/stock-count/constants'
+// import { useStockCountsStore } from '@/modules/products/stock-count/store'
+// import { StockCountProduct } from '@/modules/products/stock-count/types'
 import { i18n } from '@lingui/core'
-import { Pencil, Trash } from 'lucide-react'
-import { toast } from 'sonner'
+// import { toast } from 'sonner'
 import { Container } from '@/components/common/container'
-import { DataTable } from '@/components/table/components/data-table'
 
 export const Route = createFileRoute('/_authenticated/products/stock-count')({
   component: RouteComponent
 })
 
 function RouteComponent() {
-  const { columns, setSelectedProduct, setPage, setPerPage, totalPage, page, perPage, filters, setColumns, setFilters } =
-    useStockCountsStore()
-  const defaultColumns = useProductsColumns()
+  // const { columns, setSelectedProduct, setPage, setPerPage, totalPage, page, perPage, filters, setColumns, setFilters } =
+  //   useStockCountsStore()
+  // const defaultColumns = useProductsColumns()
 
-  const handleDeleteProduct = async (row: StockCountProduct) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    toast.success(i18n.t('Бараа амжилттай устгагдлаа'))
-    // TODO: Refetch products
-  }
+  // const handleDeleteProduct = async (row: StockCountProduct) => {
+  //   await new Promise((resolve) => setTimeout(resolve, 1000))
+  //   toast.success(i18n.t('Бараа амжилттай устгагдлаа'))
+  //   // TODO: Refetch products
+  // }
 
-  const csvData = useMemo(
-    () =>
-      PRODUCTS.map((product) => ({
-        ...product,
-        branches: product.branches.map((branch: any) => branch.name).join(','),
-        doStockEmployee: `${product.doStockEmployee.firstName} ${product.doStockEmployee.lastName}`,
-        doStockDate: format(product.doStockDate, 'yyyy/MM/dd')
-      })),
-    []
-  )
+  // const csvData = useMemo(
+  //   () =>
+  //     PRODUCTS.map((product) => ({
+  //       ...product,
+  //       branches: product.branches.map((branch: any) => branch.name).join(','),
+  //       doStockEmployee: `${product.doStockEmployee.firstName} ${product.doStockEmployee.lastName}`,
+  //       doStockDate: format(product.doStockDate, 'yyyy/MM/dd')
+  //     })),
+  //   []
+  // )
 
-  useEffect(() => {
-    setColumns(defaultColumns)
-  }, [])
+  // useEffect(() => {
+  //   setColumns(defaultColumns)
+  // }, [])
 
-  const productType = filters?.find((filter) => filter.id === 'productType')?.value
+  // const productType = filters?.find((filter) => filter.id === 'productType')?.value
 
   return (
     <Container title={i18n.t('Үлдэгдэл')} breadcrumbs={[{ to: '#', label: i18n.t('Бараа бүтээгдэхүүн') }]}>
-      <DataTable
-        caption={i18n.t('Бараа бүтээгдэхүүнүүд')}
+      <div className='' />
+      {/* <DataTable
         columns={columns}
         defaultColumns={defaultColumns}
         page={page}
@@ -56,7 +53,7 @@ function RouteComponent() {
         setPage={setPage}
         setPerPage={setPerPage}
         filters={filters}
-        setFilters={setFilters}
+        setFilter={setFilter} 
         disableActions={false}
         data={PRODUCTS.filter((product) => !productType || product.productType === productType)}
         actions={[
@@ -64,7 +61,7 @@ function RouteComponent() {
           { label: i18n.t('Устгах'), icon: Trash, onClick: (row) => handleDeleteProduct(row) }
         ]}
         tableHeader={<StockCountTableHeader csvData={csvData} />}
-      />
+      /> */}
     </Container>
   )
 }

@@ -3,11 +3,11 @@ import { ColumnDef } from '@/components/table/types'
 export type ProductType = 'medicine' | 'not-medicine'
 
 export type Product = {
-  id: string
+  id: number
   name: string
   imageUrl: string
   internationalName: string
-  branches: { id: string; imageUrl: string; name: string; quantity: number }[]
+  branches: { id: number; imageUrl: string; name: string; quantity: number }[]
   doStockEmployee: {
     avatarUrl: string
     firstName: string
@@ -24,6 +24,7 @@ export type Product = {
 }
 
 export type ProductColumnId =
+  | 'id'
   | 'name'
   | 'internationalName'
   | 'branches'
