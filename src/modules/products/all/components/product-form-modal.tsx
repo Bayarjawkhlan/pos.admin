@@ -1,11 +1,18 @@
-import { Product } from '../types'
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
+import { useProductsStore } from '../store'
 
-type ProductFormModalProps = {
-  data?: Product
-}
+export const ProductFormModal = () => {
+  const { data, isEditing, onClose } = useProductsStore()
 
-export const ProductFormModal = ({ data }: ProductFormModalProps) => {
-  console.log(data)
+  const isOpen = !!data && !isEditing
 
-  return <div className='' />
+  return (
+    <Sheet open={isOpen} onOpenChange={onClose}>
+      <SheetContent>
+        <SheetHeader>
+          <SheetTitle> {data?.name} </SheetTitle>
+        </SheetHeader>
+      </SheetContent>
+    </Sheet>
+  )
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { format } from 'date-fns'
 import { useDebounce } from '@/hooks/use-debounce'
 import { i18n } from '@lingui/core'
@@ -10,24 +10,32 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, Command
 import { Input } from '@/components/ui/input'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { MultiSelect } from '@/components/common/multi-select'
-import { ColumnDef, FilterField, SetFilter } from '../types'
+import { useTablesStore } from '../store'
+import { ColumnDef, TableKey } from '../types'
 
 type FilterRowCellProps<T, K extends string> = {
   column: ColumnDef<T, K>
-  filters: FilterField<K>[]
-  setFilter: (options: SetFilter<K>) => void
+  tableKey: TableKey
 }
 
-export const FilterRowCell = <T, K extends string>({ setFilter, column, filters }: FilterRowCellProps<T, K>) => {
+export const FilterRowCell = <T, K extends string>({ column, tableKey }: FilterRowCellProps<T, K>) => {
+  const { tables, setFilter } = useTablesStore()
+  const { filters } = useMemo(() => tables?.[tableKey as TableKey], [tableKey, tables])
+
+  const [isOpen, setIsOpen] = useState(false)
   const [value, setValue] = useState<any | null>(filters?.find((filter) => filter.id === column.id)?.value)
   const debouncedValue = useDebounce(value, 300)
-  const [isOpen, setIsOpen] = useState(false)
+
+  const filter = useMemo(() => filters?.find((filter) => filter.id === column.id)?.value, [filters, column.id])
 
   useEffect(() => {
-    setFilter({ id: column.id, value: debouncedValue })
+    if (filter === value) return
+    setValue(filters?.find((filter) => filter.id === column.id)?.value)
+  }, [filter])
+  useEffect(() => {
+    if (!debouncedValue) return
+    setFilter(tableKey, { id: column.id, value: debouncedValue })
   }, [debouncedValue])
-
-  const filter = filters?.find((filter) => filter.id === column.id)
 
   switch (column.meta?.variant) {
     case 'text':
@@ -72,7 +80,7 @@ export const FilterRowCell = <T, K extends string>({ setFilter, column, filters 
                       key={option.value}
                       value={option.value}
                       onSelect={(currentValue) => {
-                        setFilter({ id: column.id, value: filter?.value ? '' : currentValue })
+                        setFilter(tableKey, { id: column.id, value: filter?.value ? '' : currentValue })
                         setIsOpen(false)
                       }}
                     >
@@ -92,7 +100,7 @@ export const FilterRowCell = <T, K extends string>({ setFilter, column, filters 
           singleLine
           className='h-9'
           options={column.meta?.options || []}
-          onValueChange={(value) => setFilter({ id: column.id, value })}
+          onValueChange={(value) => setFilter(tableKey, { id: column.id, value })}
           defaultValue={filter?.value || []}
           placeholder={column.meta?.placeholder || '-'}
           variant='secondary'
@@ -122,7 +130,7 @@ export const FilterRowCell = <T, K extends string>({ setFilter, column, filters 
             <Calendar
               mode='range'
               selected={filter?.value}
-              onSelect={(value) => setFilter({ id: column.id, value })}
+              onSelect={(value) => setFilter(tableKey, { id: column.id, value })}
               numberOfMonths={2}
               className='rounded-lg border shadow-sm'
             />

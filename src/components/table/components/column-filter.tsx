@@ -1,27 +1,29 @@
+import { useMemo } from 'react'
 import { Check, Settings2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { ColumnDef } from '../types'
+import { useTablesStore } from '../store'
+import { ColumnDef, TableKey } from '../types'
 
-type ColumnFilterProps<T, K extends string> = {
-  defaultColumns: ColumnDef<T, K>[]
-  columns: ColumnDef<T, K>[]
-  addColumn: (column: K) => void
-  removeColumn: (column: K) => void
+type ColumnFilterProps = {
+  tableKey: TableKey
 }
 
-export const ColumnFilter = <T, K extends string>({
-  defaultColumns,
-  columns,
-  addColumn,
-  removeColumn
-}: ColumnFilterProps<T, K>) => {
+export const ColumnFilter = <T, K extends string>({ tableKey }: ColumnFilterProps) => {
+  const { tables, setColumns } = useTablesStore()
+  const { defaultColumns, columns } = useMemo(() => tables?.[tableKey as TableKey], [tableKey, tables])
+
   const handleColumnToggle = (column: ColumnDef<T, K>) => {
     if (columns.find((c) => c.id === column.id)) {
-      removeColumn(column.id)
+      setColumns(
+        tableKey,
+        columns.filter((c) => c.id !== column.id)
+      )
     } else {
-      addColumn(column.id)
+      const defaultColumn = defaultColumns.find((c) => c?.id === column.id)
+      if (!defaultColumn) return
+      setColumns(tableKey, [...columns.filter((c) => c.id !== column.id), defaultColumn])
     }
   }
 
@@ -37,7 +39,11 @@ export const ColumnFilter = <T, K extends string>({
           {defaultColumns
             .filter((c) => c.enableHiding === undefined || c.enableHiding)
             .map((column) => (
-              <button className='flex items-center gap-x-3' key={column.id} onClick={() => handleColumnToggle(column)}>
+              <button
+                className='flex items-center gap-x-3'
+                key={column.id}
+                onClick={() => handleColumnToggle(column as ColumnDef<T, K>)}
+              >
                 <div
                   className={cn(
                     'flex size-4 items-center justify-center rounded border',

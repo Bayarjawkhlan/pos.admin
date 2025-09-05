@@ -1,23 +1,27 @@
+import { useMemo } from 'react'
 import { cn } from '@/lib/utils'
-import { SortDirection, SortField } from '../types'
+import { useTablesStore } from '../store'
+import { SortDirection, TableKey } from '../types'
 import { getSortIcon } from '../utils'
 
-type ColumnHeaderProps<K> = {
-  title: string
+type ColumnHeaderProps = {
   id?: string
-  sorts?: SortField<K>[]
+  tableKey: TableKey
+  title: string
   sortable?: boolean
-  setSorts?: (id: any, direction: SortDirection | null) => void
   className?: string
   align?: 'left' | 'center' | 'right'
 }
 
-export const ColumnHeader = <K,>({ title, id, sorts, sortable, setSorts, className, align = 'left' }: ColumnHeaderProps<K>) => {
+export const ColumnHeader = ({ title, id, tableKey, sortable = true, className, align = 'left' }: ColumnHeaderProps) => {
+  const { tables, setSorts } = useTablesStore()
+  const { sorts } = useMemo(() => tables?.[tableKey as TableKey], [tableKey, tables])
+
   const handleSort = () => {
     if (!sortable || !id || !setSorts) return
     let direction: SortDirection | null = null
     if (!sorts?.some((s) => s.id === id)) {
-      setSorts(id, 'asc')
+      setSorts(tableKey, { id, direction: 'asc' })
       return
     }
     const existingSort = sorts?.find((s) => s.id === id)
@@ -26,7 +30,7 @@ export const ColumnHeader = <K,>({ title, id, sorts, sortable, setSorts, classNa
     } else {
       direction = null
     }
-    setSorts(id, direction)
+    setSorts(tableKey, { id, direction })
   }
 
   return (

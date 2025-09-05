@@ -46,7 +46,7 @@ export const useTablesStore = create<TablesStore>((set, get) => ({
   setPage: (key, page) => get().setTable(key, { page }),
   setPerPage: (key, perPage) => get().setTable(key, { perPage }),
   setTotalPage: (key, totalPage) => get().setTable(key, { totalPage }),
-  setColumns: (key, columns) => get().setTable(key, { columns, defaultColumns: columns }),
+  setColumns: (key, columns) => get().setTable(key, { columns }),
   setSorts: (key, { id, direction }) => {
     const table = get().tables[key]
     if (!table) return
