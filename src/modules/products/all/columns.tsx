@@ -1,6 +1,6 @@
 import { format } from 'date-fns'
 import { i18n } from '@lingui/core'
-import { Barcode, Check, DollarSign, Factory, Globe2, Search } from 'lucide-react'
+import { Barcode, DollarSign, Factory, Globe2, Search } from 'lucide-react'
 import COUNTRIES from '@/lib/constants/countries.json'
 import { cn, formatMoney } from '@/lib/utils'
 import { ColumnHeader } from '@/components/table/components/column-header'
@@ -8,20 +8,20 @@ import { TableKey } from '@/components/table/types'
 import { ProductColumn } from './types'
 
 export const useProductsColumns = (
-  tableKey: TableKey,
-  selectedRowIds: number[],
-  setSelectedRowIds: (rowId: number) => void,
-  selectAll: () => void
+  tableKey: TableKey
+  // selectedRowIds: number[],
+  // setSelectedRowIds: (rowId: number) => void,
+  // selectAll: () => void
 ): ProductColumn[] => {
   const handleSelectAll = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation()
-    console.log(selectedRowIds?.length)
-    selectAll()
+    // console.log(selectedRowIds?.length)
+    // selectAll()
   }
 
   const handleSelectRow = (rowId: number) => {
-    console.log(rowId, selectedRowIds)
-    setSelectedRowIds(rowId)
+    // console.log(rowId, selectedRowIds)
+    // setSelectedRowIds(rowId)
   }
 
   return [
@@ -31,12 +31,12 @@ export const useProductsColumns = (
       header: (
         <button
           className={cn(
-            'flex size-4 items-center justify-center rounded-[2px] border',
-            selectedRowIds?.length === selectedRowIds?.length && 'bg-primary text-white'
+            'flex size-4 items-center justify-center rounded-[2px] border'
+            // selectedRowIds?.length === selectedRowIds?.length && 'bg-primary text-white'
           )}
           onClick={handleSelectAll}
         >
-          {selectedRowIds?.length === selectedRowIds?.length && <Check className='size-3.5' />}
+          {/* {selectedRowIds?.length === selectedRowIds?.length && <Check className='size-3.5' />} */}
         </button>
       ),
       cell: (row) => (
@@ -47,7 +47,7 @@ export const useProductsColumns = (
             handleSelectRow(row.id)
           }}
         >
-          {selectedRowIds?.includes(row.id) && <Check onClick={(e) => e.stopPropagation()} className='size-3.5 text-black' />}
+          {/* {selectedRowIds?.includes(row.id) && <Check onClick={(e) => e.stopPropagation()} className='size-3.5 text-black' />} */}
         </button>
       )
     },

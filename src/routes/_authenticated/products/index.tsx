@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { format } from 'date-fns'
 import { createFileRoute } from '@tanstack/react-router'
 import { useProductsColumns } from '@/modules/products/all/columns'
@@ -19,13 +19,13 @@ export const Route = createFileRoute('/_authenticated/products/')({
 
 function RouteComponent() {
   const { setData, setIsEditing } = useProductsStore()
-  const [selectedRowIds, setSelectedRowIds] = useState<number[]>([])
+  // const [selectedRowIds, setSelectedRowIds] = useState<number[]>([])
 
   const columns = useProductsColumns(
-    'products',
-    selectedRowIds,
-    (rowId) => setSelectedRowIds((prev) => (prev.includes(rowId) ? prev.filter((id) => id !== rowId) : [...prev, rowId])),
-    () => setSelectedRowIds(selectedRowIds.length === PRODUCTS.length ? [] : PRODUCTS.map((product) => product.id))
+    'products'
+    // selectedRowIds,
+    // (rowId) => setSelectedRowIds((prev) => (prev.includes(rowId) ? prev.filter((id) => id !== rowId) : [...prev, rowId])),
+    // () => setSelectedRowIds(selectedRowIds.length === PRODUCTS.length ? [] : PRODUCTS.map((product) => product.id))
   )
 
   const handleDeleteProduct = async (row: Product) => {
